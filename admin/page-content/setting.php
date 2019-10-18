@@ -60,24 +60,7 @@ switch ($show) {
         echo '          </div>
                     </div>
                 </div>
-            ';
-        echo '  <div class="col-md-12">    
-                    <div class="card card-default">
-                        <div class="card-header">
-                        <h3 class="card-title">
-                            <i class="fas fa-users"></i>
-                            Tentang Kami
-                        </h3>
-                        </div>
-                        <div class="card-body">
-                        <textarea class="textarea" placeholder="Place some text here"
-                          style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
-            ';
-        echo '          </div>
-                    </div>
-                </div>
-            ';
-
+            ';        
         echo '<div>
         </div>
     </section>

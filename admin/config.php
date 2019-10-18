@@ -37,6 +37,8 @@ $thn_sekarang = date("Y");
 $tanggal 	= date("Y-m-d");  
 $jam 		= date("H:i:s");
 
+$query = $mysqli->query("SELECT * FROM setting");
+$set = $query->fetch_array();
 
 function rupiah($angka){
 	$hasil_rupiah = "Rp " . number_format($angka,2,',','.');

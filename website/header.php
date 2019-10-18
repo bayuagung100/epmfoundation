@@ -34,14 +34,14 @@
 
 <body>
     <!-- HEADER -->
-    <header id="home">
+    <header >
         <!-- NAVGATION -->
         <nav id="main-navbar">
             <div class="container">
                 <div class="navbar-header">
                     <!-- Logo -->
                     <div class="navbar-brand">
-                        <a class="logo" href="index.html"><img src="" alt="logo"></a>
+                        <a class="logo" href="<?php echo $set['url_website'];?>"><img src="" alt="logo"></a>
                     </div>
                     <!-- Logo -->
 
@@ -92,8 +92,8 @@
 
                 <!-- Nav menu -->
                 <ul class="navbar-menu nav navbar-nav navbar-right">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="#">Tentang Kami</a></li>
+                    <li><a href="<?php echo $set['url_website'];?>">Home</a></li>
+                    <li><a href="tentang-kami">Tentang Kami</a></li>
                     <li class="has-dropdown"><a href="#">Program</a>
                         <ul class="dropdown">
                             <li><a href="single-cause.html">Sub Program</a></li>

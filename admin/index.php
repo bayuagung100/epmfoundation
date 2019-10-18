@@ -60,7 +60,7 @@ if (empty($_SESSION['username']) or empty($_SESSION['password']) or $_SESSION['l
 
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="<?php echo $set['url_website'];?>" target="_blank">
                             <i class="fas fa-eye"></i> Lihat Website
                         </a>
                     </li>
@@ -112,34 +112,26 @@ if (empty($_SESSION['username']) or empty($_SESSION['password']) or $_SESSION['l
         <script src="plugins/daterangepicker/daterangepicker.js"></script>
         <!-- Tempusdominus Bootstrap 4 -->
         <script src="plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
-        <!-- Summernote -->
-        <script src="plugins/summernote/summernote-bs4.min.js"></script>
+        <!-- TinyMCE  -->
+        <script src="plugins/tinymce/tinymce.min.js"></script>
         <script>
-            $(document).ready(function() {
-                // Summernote
-                $('#summernote').summernote({
-                    height: 300, // set editor height
-                    minHeight: null, // set minimum height of editor
-                    maxHeight: null, // set maximum height of editor
-                    focus: true, // set focus to editable area after initializing summernote
-                    
-                        onImageUpload: function(files) {
-                            // upload image to server and create imgNode...
-                            $summernote.summernote('insertNode', imgNode);
-                        }
-                    
-
-
-                });
-
-                // summernote.image.upload
-                $('#summernote').on('summernote.image.upload', function(we, files) {
-                    // upload image to server and create imgNode...
-                    $summernote.summernote('insertNode', imgNode);
-                });
-
-
-            })
+            tinymce.init({
+                selector: '.richtext',
+                height: 500,
+                // link_list: "json/link-list.php",
+                plugins: [
+                    'advlist autolink lists link image charmap print preview anchor',
+                    'searchreplace visualblocks code fullscreen',
+                    'insertdatetime media table paste code help wordcount responsivefilemanager'
+                ],
+                toolbar: 'insertfile undo redo | formatselect | bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | responsivefilemanager | link ',
+                content_css: [
+                    '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
+                    '//www.tiny.cloud/css/codepen.min.css'
+                ],
+                external_filemanager_path: "../filemanager/",
+                filemanager_title: "File Manager",
+            });
         </script>
         <!-- overlayScrollbars -->
         <script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>

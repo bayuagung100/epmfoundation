@@ -7,7 +7,7 @@ $link = "?content=tentang-kami";
 switch ($show) {
     default:
         echo '
-    <section class="content">
+    <section class="content" style="padding-top:10px">
         <div class="container-fluid">
             ';
         echo '  <div class="col-md-12">    
@@ -22,9 +22,8 @@ switch ($show) {
                         $query  = $mysqli->query("SELECT * FROM tentang_kami ");
                         $data = $query->fetch_array();
                         buka_form($link, $data['id'], "about");
-        echo'           <textarea name="isi" id="summernote" placeholder="Place some text here"
-                        style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">
-                        '.$data['isi'].'</textarea>
+        echo'           <textarea name="isi" class="richtext">'.$data['isi'].'</textarea>
+                        <br>
             ';
                         tutup_form($link);
         echo '          </div>

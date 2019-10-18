@@ -3,6 +3,8 @@ RewriteEngine on
 
 RewriteRule ^$ index.php [L]
 
+RewriteRule ^tentang-kami$ index.php?content=tentang-kami [L]
+
 RewriteRule ^product/([0-9]+)/(.*)/$ index.php?content=product&id=$1 [L]
 RewriteRule ^product/$ index.php?content=product-all [L]
 
