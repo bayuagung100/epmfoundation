@@ -8,7 +8,7 @@
             <div class="col-md-4">
                 <div class="footer">
                     <div class="footer-logo">
-                        <a class="logo" href="<?php echo $set['url_website'];?>"><img src="" alt="logo"></a>
+                        <a class="logo" href="<?php echo $set['url_website']; ?>"><img src="" alt="logo"></a>
                     </div>
                     <p>Ringkasan Tentang Kami.</p>
                     <ul class="footer-contact">

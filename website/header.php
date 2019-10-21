@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ID">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -34,14 +35,14 @@
 
 <body>
     <!-- HEADER -->
-    <header >
+    <header>
         <!-- NAVGATION -->
         <nav id="main-navbar">
             <div class="container">
                 <div class="navbar-header">
                     <!-- Logo -->
                     <div class="navbar-brand">
-                        <a class="logo" href="<?php echo $set['url_website'];?>"><img src="" alt="logo"></a>
+                        <a class="logo" href="<?php echo $set['url_website']; ?>"><img src="" alt="logo"></a>
                     </div>
                     <!-- Logo -->
 
@@ -92,7 +93,7 @@
 
                 <!-- Nav menu -->
                 <ul class="navbar-menu nav navbar-nav navbar-right">
-                    <li><a href="<?php echo $set['url_website'];?>">Home</a></li>
+                    <li><a href="<?php echo $set['url_website']; ?>">Home</a></li>
                     <li><a href="tentang-kami">Tentang Kami</a></li>
                     <li class="has-dropdown"><a href="#">Program</a>
                         <ul class="dropdown">

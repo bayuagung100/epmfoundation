@@ -4,10 +4,11 @@ include "config.php";
 ?>
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Administrator    </title>
+    <title>Administrator</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -46,7 +47,7 @@ include "config.php";
                         $_SESSION['username']     = $data['username'];
                         $_SESSION['nama']  = $data['nama'];
                         $_SESSION['password']     = $data['password'];
-                        
+
 
                         $_SESSION['timeout'] = time() + 1000;
                         $_SESSION['login'] = 1;

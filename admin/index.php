@@ -60,7 +60,7 @@ if (empty($_SESSION['username']) or empty($_SESSION['password']) or $_SESSION['l
 
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo $set['url_website'];?>" target="_blank">
+                        <a class="nav-link" href="<?php echo $set['url_website']; ?>" target="_blank">
                             <i class="fas fa-eye"></i> Lihat Website
                         </a>
                     </li>

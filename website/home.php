@@ -1,4 +1,4 @@
-<?php include "header.php";?>
+<?php include "header.php"; ?>
 <div id="home-owl" class="owl-carousel owl-theme">
 	<!-- home item -->
 	<div class="home-item">
@@ -507,4 +507,4 @@
 	<!-- /container -->
 </div>
 <!-- /BLOG -->
-<?php include "footer.php";?>
+<?php include "footer.php"; ?>

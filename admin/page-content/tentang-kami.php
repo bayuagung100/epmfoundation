@@ -35,12 +35,10 @@ switch ($show) {
         </div>
     </section>
             ';
-        break;
+    break;
 
     case "action":
         $isi  = addslashes($_POST['isi']);
-
-
         if ($_POST['aksi'] == "about") {
             $query  = $mysqli->query("UPDATE tentang_kami SET       
                 isi = '$isi'
@@ -48,6 +46,6 @@ switch ($show) {
                 ");
         }
         header('location:' . $link);
-        break;
+    break;
 }
 ?>

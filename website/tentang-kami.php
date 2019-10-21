@@ -8,7 +8,7 @@
                 <div class="header-content">
                     <h1>Tentang Kami</h1>
                     <ul class="breadcrumb">
-                        <li><a href="<?php echo $set['url_website'];?>">Home</a></li>
+                        <li><a href="<?php echo $set['url_website']; ?>">Home</a></li>
                         <li><a href="#">Tentang Kami</a></li>
                     </ul>
                 </div>
