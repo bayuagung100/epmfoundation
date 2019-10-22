@@ -1,97 +1,58 @@
 <?php
-function buka_tabel($judul){
-	echo'
+function buka_tabel_program($judul)
+{
+	echo '
 	<div class="card-body">
-		<div class="table-responsive">
-		<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-		<thead>
-			<tr>
-			<th style="width: 10px">No</th>';
-	foreach($judul as $jdl){
-		echo '<th>'.$jdl.'</th>';
+        <table id="example1" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+					<th style="width: 10px">No</th>';
+	foreach ($judul as $jdl) {
+		echo '<th>' . $jdl . '</th>';
 	}
-				
-		echo '<th style="width: 90px">Aksi</th>
-			</tr>
-		</thead>
-		<tbody>';
+	echo '
+					<th style="width: 120px">Aksi</th>
+				</tr>
+			</thead>
+			<tbody>';
 }
-
-function buka_tabel_orderan($judul){
-	echo'
-	<div class="card-body">
-		<div class="table-responsive">
-		<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-		<thead>
-			<tr>
-			<th style="width: 10px">No</th>';
-	foreach($judul as $jdl){
-		echo '<th>'.$jdl.'</th>';
+function isi_table_program($no, $data, $link, $id, $edit = true, $hapus = true)
+{
+	echo '
+				<tr>
+					<td>' . $no . '</td>';
+	foreach ($data as $dt) {
+		echo '<td>' . $dt . '</td>';
 	}
-				
-		echo '	<th style="width: 90px">Aksi</th>
-			</tr>
-		</thead>
-		<tbody>';
-}
-function isi_orderan($no, $data, $link, $id, $edit=true){
-	echo'<tr>
-			<td valign="top">'.$no.'</td>';
-	foreach($data as $dt){
-		echo'<td valign="top">'.$dt.'</td>';
-	}
-	echo'<td valign="top">';
-	if($edit){
-		echo'<a href="'.$link.'&show=form&id='.$id.'" class="btn btn-success btn-sm">
-				<i class="fas fa-eye"></i> Detail
+	echo '<td>';
+	if ($edit) {
+		echo '<a href="' . $link . '&show=form&id=' . $id . '" class="btn btn-primary btn-sm">
+				<i class="fas fa-pencil-alt"></i> Edit
 			</a> ';
 	}
-	echo'</td>
-		</tr>';
-}
-
-
-function isi_bp($no, $data, $link, $id, $edit=true, $hapus=true){
-	echo'
-		<tr>
-		<td valign="top">'.$no.'</td>';
-	foreach($data as $dt){
-		echo'<td>'.$dt.'</td>';
-	}
-	echo'<td>';
-	if($edit){
-		echo'<a href="'.$link.'&show=form&id='.$id.'" class="btn btn-primary btn-sm">
-				<i class="fas fa-pencil-alt"></i>
-			</a> ';
-	}
-	if($hapus){
-		echo'<a href="'.$link.'&show=delete&id='.$id.'" class="btn btn-danger btn-sm">
-				<i class="fas fa-trash"></i>
+	if ($hapus) {
+		echo '<a href="' . $link . '&show=delete&id=' . $id . '" class="btn btn-danger btn-sm">
+				<i class="fas fa-trash"></i> Hapus
 			</a>';
 	}
-	echo'</td>
+	echo '</td>
 		</tr>';
 }
-function isi_contact($data, $link, $id, $hapus=true){
-	echo'
-		<tr>';
-	foreach($data as $dt){
-		echo'<td>'.$dt.'</td>';
+function tutup_tabel_program($judul)
+{
+	echo '		
+			</tbody>	
+			<tfoot>
+				<tr>
+					<th style="width: 10px">No</th>';
+	foreach ($judul as $jdl) {
+		echo '<th>' . $jdl . '</th>';
 	}
-	echo'<td>';
-	if($hapus){
-		echo'<a href="'.$link.'&show=delete&id='.$id.'" class="btn btn-danger btn-sm">
-				<i class="fas fa-trash"></i>
-			</a>';
-	}
-	echo'</td>
-		</tr>';
-}
-
-function tutup_tabel(){
-	echo'		</tbody>	
-			</table>
-		</div>
+	echo '
+					<th style="width: 90px">Aksi</th>
+				</tr>
+			</tfoot>
+		</table>
 	</div>';
 }
 ?>

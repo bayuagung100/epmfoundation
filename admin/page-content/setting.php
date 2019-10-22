@@ -35,6 +35,9 @@ switch ($show) {
         buat_textbox('Judul Website', 'judul_website', $data['judul_website'], 'Enter judul website');
         buat_textbox('Url Website', 'url_website', $data['url_website'], 'http://domain.com/');
         buat_textarea('Deskripsi Website (*Jangan pakai enter)', 'deskripsi_website', $data['deskripsi_website'], 'Enter deskripsi website');
+        buat_textarea('Alamat Kantor (*Jangan pakai enter)', 'alamat', $data['alamat'], 'Enter alamat kantor');
+        buat_textbox('Telepon Kantor', 'telepon', $data['telepon'], '+62xxxxxxxxxxx');
+        buat_textbox('Email Kantor', 'email', $data['email'], 'email@domain.com');
         tutup_form($link);
 
         echo '          </div>
@@ -71,6 +74,9 @@ switch ($show) {
         $judul_website   = ucwords(addslashes($_POST['judul_website']));
         $url_website   = addslashes($_POST['url_website']);
         $deskripsi_website  = addslashes($_POST['deskripsi_website']);
+        $alamat  = addslashes($_POST['alamat']);
+        $telepon  = addslashes($_POST['telepon']);
+        $email  = addslashes($_POST['email']);
         $visi  = addslashes($_POST['visi']);
         $misi  = addslashes($_POST['misi']);
 
@@ -79,7 +85,10 @@ switch ($show) {
             $query  = $mysqli->query("UPDATE setting SET       
                 judul_website = '$judul_website',
                 url_website = '$url_website',
-                deskripsi_website = '$deskripsi_website'
+                deskripsi_website = '$deskripsi_website',
+                alamat = '$alamat',
+                telepon = '$telepon',
+                email = '$email'
                 WHERE id='$_POST[id]'
                 ");
         }

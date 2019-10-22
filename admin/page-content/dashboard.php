@@ -11,41 +11,58 @@
 <section class="content">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-3 col-sm-6 col-12">
-                <div class="info-box">
-                    <span class="info-box-icon bg-info"><i class="far fa-envelope"></i></span>
-                    <div class="info-box-content">
-                        <span class="info-box-text">Messages</span>
-                        <span class="info-box-number">1,410</span>
+            <div class="col-lg-3 col-6">
+                <div class="small-box bg-info">
+                    <div class="inner">
+                        <h3>150</h3>
+
+                        <p>Sukarelawan</p>
                     </div>
+                    <div class="icon">
+                        <i class="far fa-handshake"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
             </div>
-            <div class="col-md-3 col-sm-6 col-12">
-                <div class="info-box">
-                    <span class="info-box-icon bg-success"><i class="far fa-flag"></i></span>
-                    <div class="info-box-content">
-                        <span class="info-box-text">Bookmarks</span>
-                        <span class="info-box-number">410</span>
+            <div class="col-lg-3 col-6">
+                <div class="small-box bg-success">
+                    <div class="inner">
+                        <h3>53</h3>
+
+                        <p>Proyek Amal</p>
                     </div>
+                    <div class="icon">
+                        <i class="far fa-smile"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
             </div>
-            <div class="col-md-3 col-sm-6 col-12">
-                <div class="info-box">
-                    <span class="info-box-icon bg-warning"><i class="far fa-copy"></i></span>
-                    <div class="info-box-content">
-                        <span class="info-box-text">Uploads</span>
-                        <span class="info-box-number">13,648</span>
+            <div class="col-lg-3 col-6">
+                <div class="small-box bg-warning">
+                    <div class="inner">
+                        <h3>44</h3>
+
+                        <p>Penerima Amal</p>
                     </div>
+                    <div class="icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
             </div>
-            <div class="col-md-3 col-sm-6 col-12">
-                <div class="info-box">
-                    <span class="info-box-icon bg-danger"><i class="far fa-star"></i></span>
-                    <div class="info-box-content">
-                        <span class="info-box-text">Likes</span>
-                        <span class="info-box-number">93,139</span>
+            <div class="col-lg-3 col-6">
+                <div class="small-box bg-danger">
+                    <div class="inner">
+                        <h3>655k</h3>
+
+                        <p>Dana Terhimpun</p>
                     </div>
+                    <div class="icon">
+                        <i class="far fa-money-bill-alt"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
             </div>
         </div>
+    </div>
 </section>

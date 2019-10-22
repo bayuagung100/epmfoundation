@@ -12,9 +12,9 @@
                     </div>
                     <p>Ringkasan Tentang Kami.</p>
                     <ul class="footer-contact">
-                        <li><i class="fa fa-map-marker"></i> Alamat Kantor</li>
-                        <li><i class="fa fa-phone"></i> 08xxxxxxxxxx</li>
-                        <li><i class="fa fa-envelope"></i> email@domain.com</a></li>
+                        <li><i class="fa fa-map-marker"></i> <?php echo $set['alamat'];?></li>
+                        <li><i class="fa fa-phone"></i> <?php echo $set['telepon'];?></li>
+                        <li><i class="fa fa-envelope"></i> <?php echo $set['email'];?></a></li>
                     </ul>
                 </div>
             </div>

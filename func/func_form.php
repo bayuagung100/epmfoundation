@@ -7,8 +7,14 @@ function buka_form($link, $id, $aksi){
 
 function buat_textbox($label, $nama, $nilai, $place, $tipe="text"){
 	echo'<div class="form-group">
-			<label for="'.$nama.'">'.$label.'</label>
-			<input type="'.$tipe.'" id="'.$nama.'" class="form-control" name="'.$nama.'" value="'.$nilai.'" placeholder="'.$place.'">
+		<label for="'.$nama.'">'.$label.'</label>
+		<input type="'.$tipe.'" id="'.$nama.'" class="form-control" name="'.$nama.'" value="'.$nilai.'" placeholder="'.$place.'">
+		</div>';
+}
+function buat_tinymce($label, $nama, $nilai, $place, $class=''){
+	echo'<div class="form-group">
+			<label>'.$label.'</label>
+			<textarea name="'.$nama.'" class="form-control '.$class.'" placeholder="'.$place.'">'.$nilai.'</textarea>
 		 </div>
 		 ';
 }
@@ -20,13 +26,28 @@ function buat_textarea($label, $nama, $nilai, $place){
 		 ';
 }
 
+function buat_combobox($label, $nama, $list, $nilai, $lebar='4'){
+	echo'<div class="form-group" id="'.$nama.'">
+			<label for="'.$nama.'" class="control-label">'.$label.' (<a href="?content=kategori-program">Buat kategori baru</a>)</label>
+			<div class="col-sm-'.$lebar.'">
+			  <select class="form-control" name="'.$nama.'">';
+		foreach($list as $ls){
+			$select = $ls['val']==$nilai ? 'selected' : '';
+			echo'<option value='.$ls['val'].' '.$select.'>'.$ls['cap'].'</option>';
+		}
+	echo'	  </select>
+			</div>
+		 </div>';
+}
+
+
 function buat_imagepicker($label, $nama, $nilai, $lebar='4'){
 ?>
 	<script type="text/javascript">
 		$(function(){
 			$('#modal-<?php echo $nama; ?>').on('hidden.bs.modal', function (e) {
 				var url = $('#<?php echo $nama; ?>').val();
-				if(url != "") $('.tampil-<?php echo $nama; ?>').html('<img src="../media/thumbs/'+url+'" width="150" style="margin-bottom: 10px">');
+				if(url != "") $('.tampil-<?php echo $nama; ?>').html('<img src="../img/thumbs/'+url+'" width="150" style="margin-bottom: 10px">');
 			})
 		});
 	</script>
@@ -35,7 +56,7 @@ function buat_imagepicker($label, $nama, $nilai, $lebar='4'){
 			<label for="'.$nama.'" class="col-sm-2 control-label">'.$label.'</label>
 			<div class="col-sm-'.$lebar.'">
 			<div class="tampil-'.$nama.'">';
-		if($nilai != "") echo'<img src="../media/thumbs/'.$nilai.'" width="150" style="margin-bottom: 10px">';
+		if($nilai != "") echo'<img src="../img/thumbs/'.$nilai.'" width="150" style="margin-bottom: 10px">';
 	echo'	</div>
 			<div class="input-group">
 			  <input type="text" class="form-control input-'.$nama.'" id="'.$nama.'" name="'.$nama.'" value="'.$nilai.'" readonly>
@@ -44,14 +65,14 @@ function buat_imagepicker($label, $nama, $nilai, $lebar='4'){
 			</div>
 			<div class="modal fade" id="modal-'.$nama.'" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 
-				<div class="modal-dialog modal-lg">
+				<div class="modal-dialog modal-lg" style="max-width: 1200px;">
 					<div class="modal-content">
-						<div class="modal-header">
+						<div class="modal-header" style="min-height: 16.43px;padding: 15px;border-bottom: 1px solid #e5e5e5;display:block">
 							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 							<h4 class="modal-title" id="myModalLabel">File Manager</h4>
 						</div>
 						<div class="modal-body">
-							<iframe src="../vendor/filemanager/dialog.php?type=1&field_id='.$nama.'&relative_url=1" width="100%" height="500" style="border: 0"></iframe>
+							<iframe src="../filemanager/dialog.php?type=1&field_id='.$nama.'&relative_url=1" width="100%" height="500" style="border: 0"></iframe>
 						</div>
 					</div>
 				</div>

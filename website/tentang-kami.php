@@ -17,4 +17,27 @@
     </div>
 </div>
 
+<div class="section">
+    <div class="container">
+        <div class="row">
+            <main id="main" class="col-md-9">
+                <div class="article event-details">
+                    <div class="article-content">
+                        <?php
+                        $query = $mysqli->query("SELECT * FROM tentang_kami");
+                        $data = $query->fetch_array();
+                        $isi = str_replace('../', $set['url_website'], $data['isi']);
+
+                        echo $isi;
+                        ?>
+                    </div>
+                </div>
+            </main>
+
+            <?php include "sidebar.php"; ?>
+
+        </div>
+    </div>
+</div>
+
 <?php include "footer.php"; ?>

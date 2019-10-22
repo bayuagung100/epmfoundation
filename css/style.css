@@ -811,11 +811,13 @@ textarea.input {
 
 .causes {
   margin-bottom: 60px;
+  box-shadow: 0 0 1px rgba(0,0,0,.125),0 1px 3px rgba(0,0,0,.2);
+  padding: 5px;
 }
 
 .causes .causes-img {
   position: relative;
-  border-radius: 10px;
+  /* border-radius: 10px; */
   overflow: hidden;
 }
 
@@ -841,7 +843,7 @@ textarea.input {
 }
 
 .causes .causes-progress {
-  margin-top: 45px;
+  margin-top: 5px;
 }
 
 .causes-progress .causes-progress-bar {

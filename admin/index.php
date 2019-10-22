@@ -27,6 +27,8 @@ if (empty($_SESSION['username']) or empty($_SESSION['password']) or $_SESSION['l
         <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
         <!-- Ionicons -->
         <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+        <!-- DataTables -->
+        <link rel="stylesheet" href="plugins/datatables-bs4/css/dataTables.bootstrap4.css">
         <!-- Tempusdominus Bbootstrap 4 -->
         <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
         <!-- iCheck -->
@@ -39,10 +41,10 @@ if (empty($_SESSION['username']) or empty($_SESSION['password']) or $_SESSION['l
         <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
         <!-- Daterange picker -->
         <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
-        <!-- summernote -->
-        <link rel="stylesheet" href="plugins/summernote/summernote-bs4.css">
         <!-- Google Font: Source Sans Pro -->
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+        <!-- jQuery -->
+        <script src="plugins/jquery/jquery.min.js"></script>
     </head>
 
     <body class="hold-transition sidebar-mini layout-navbar-fixed">
@@ -88,8 +90,7 @@ if (empty($_SESSION['username']) or empty($_SESSION['password']) or $_SESSION['l
             </div>
         </div>
 
-        <!-- jQuery -->
-        <script src="plugins/jquery/jquery.min.js"></script>
+        
         <!-- jQuery UI 1.11.4 -->
         <script src="plugins/jquery-ui/jquery-ui.min.js"></script>
         <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
@@ -133,12 +134,27 @@ if (empty($_SESSION['username']) or empty($_SESSION['password']) or $_SESSION['l
                 filemanager_title: "File Manager",
             });
         </script>
+        <!-- DataTables -->
+        <script src="plugins/datatables/jquery.dataTables.js"></script>
+        <script src="plugins/datatables-bs4/js/dataTables.bootstrap4.js"></script>
+        <script>
+            $(function() {
+                $("#example1").DataTable();
+                $('#example2').DataTable({
+                    "paging": true,
+                    "lengthChange": false,
+                    "searching": false,
+                    "ordering": true,
+                    "info": true,
+                    "autoWidth": false,
+                });
+            });
+        </script>
         <!-- overlayScrollbars -->
         <script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
         <!-- AdminLTE App -->
         <script src="dist/js/adminlte.js"></script>
-        <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-        <script src="dist/js/pages/dashboard.js"></script>
+        
         <!-- AdminLTE for demo purposes -->
         <script src="dist/js/demo.js"></script>
     </body>
