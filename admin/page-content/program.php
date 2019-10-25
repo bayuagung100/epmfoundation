@@ -42,7 +42,7 @@ switch($show){
                         $katquery = $mysqli->query("SELECT * FROM kategori_program WHERE id='$kategori' ");
                         while ($kat = $katquery->fetch_array()) {
                             $kp = $kat['kategori'];
-                            isi_table_program($no, array($judul, "<img src='".$pic."' width='150' style='margin-bottom: 10px'>", limit_words($deskripsi,10), $kp),$link ,$data['id']);
+                            isi_table_program($no, array($judul, "<img src='".$pic."' width='150' style='margin-bottom: 10px'>", limit_words(strip_tags($deskripsi),10), $kp),$link ,$data['id']);
                             $no++;
                         }
                 }
@@ -95,30 +95,41 @@ switch($show){
         
     case "action":
         $judul	= ucwords(addslashes($_POST['judul']));
+        $convert = convert_seo($judul);
+        $url = str_replace("--","-",$convert);
         $gambar	= addslashes($_POST['gambar']);
+        $tanggal	= date("Y-m-d");
         $kategori	= addslashes($_POST['kategori']);
         $deskripsi	= addslashes($_POST['deskripsi']);
+        $user = $_SESSION['id'];
 
         if ($_POST['aksi']=="tambah") {
             $query = $mysqli->query("INSERT INTO program
             (
                 judul,
+                url,
                 gambar,
+                tanggal,
                 deskripsi,
-                kategori
+                kategori,
+                user
             )
             VALUES
             (
                 '$judul',
+                '$url',
                 '$gambar',
+                '$tanggal',
                 '$deskripsi',
-                '$kategori'
+                '$kategori',
+                '$user'
             )
             ");
         }
         if ($_POST['aksi']=="edit") {
             $query = $mysqli->query("UPDATE program SET
             judul = '$judul',
+            url = '$url',
             gambar = '$gambar',
             deskripsi = '$deskripsi',
             kategori = '$kategori'

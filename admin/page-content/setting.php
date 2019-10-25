@@ -38,6 +38,10 @@ switch ($show) {
         buat_textarea('Alamat Kantor (*Jangan pakai enter)', 'alamat', $data['alamat'], 'Enter alamat kantor');
         buat_textbox('Telepon Kantor', 'telepon', $data['telepon'], '+62xxxxxxxxxxx');
         buat_textbox('Email Kantor', 'email', $data['email'], 'email@domain.com');
+        buat_textbox('WhatsApp', 'wa', $data['wa'], '62xxxxxxxxxxx');
+        buat_textbox('Instagram', 'ig', $data['ig'], 'https://www.instagram.com/xxxxxx/');
+        buat_textbox('Facebook', 'fb', $data['fb'], 'https://www.facebook.com/xxxxxx/');
+        buat_textbox('Twitter', 'twitter', $data['twitter'], 'https://twitter.com/xxxxxx/');
         tutup_form($link);
 
         echo '          </div>
@@ -77,6 +81,10 @@ switch ($show) {
         $alamat  = addslashes($_POST['alamat']);
         $telepon  = addslashes($_POST['telepon']);
         $email  = addslashes($_POST['email']);
+        $wa  = addslashes($_POST['wa']);
+        $ig  = addslashes($_POST['ig']);
+        $fb  = addslashes($_POST['fb']);
+        $twitter  = addslashes($_POST['twitter']);
         $visi  = addslashes($_POST['visi']);
         $misi  = addslashes($_POST['misi']);
 
@@ -88,7 +96,11 @@ switch ($show) {
                 deskripsi_website = '$deskripsi_website',
                 alamat = '$alamat',
                 telepon = '$telepon',
-                email = '$email'
+                email = '$email',
+                wa = '$wa',
+                ig = '$ig',
+                fb = '$fb',
+                twitter = '$twitter'
                 WHERE id='$_POST[id]'
                 ");
         }

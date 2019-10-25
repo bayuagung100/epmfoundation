@@ -11,6 +11,21 @@ function buat_textbox($label, $nama, $nilai, $place, $tipe="text"){
 		<input type="'.$tipe.'" id="'.$nama.'" class="form-control" name="'.$nama.'" value="'.$nilai.'" placeholder="'.$place.'">
 		</div>';
 }
+function buat_time($label, $nama, $nilai, $place, $tipe="text"){
+	echo'<div class="form-group">
+		<label for="'.$nama.'">'.$label.'</label>
+		<div class="input-group date" id="'.$nama.'" data-target-input="nearest">
+		<input type="'.$tipe.'" id="'.$nama.'" class="form-control datetimepicker-input" data-target="#'.$nama.'" data-toggle="datetimepicker" name="'.$nama.'" value="'.$nilai.'" placeholder="'.$place.'">
+		</div>
+		<script>
+		$(function () {
+			$("#'.$nama.'").datetimepicker({
+				format: "LT"
+			})
+		})
+		</script>
+		</div>';
+}
 function buat_tinymce($label, $nama, $nilai, $place, $class=''){
 	echo'<div class="form-group">
 			<label>'.$label.'</label>
@@ -24,6 +39,26 @@ function buat_textarea($label, $nama, $nilai, $place){
 			<textarea name="'.$nama.'" class="form-control" placeholder="'.$place.'">'.$nilai.'</textarea>
 		 </div>
 		 ';
+}
+
+function buat_inlinebuka(){
+    echo'<div class="form-group row">';
+}
+function buat_inlinebuka_col($col="3"){
+	echo'<div class="col-md-'.$col.'">';
+}
+function buat_inline($label, $nama, $nilai, $place, $tipe="text"){
+    echo'
+            <label for="'.$nama.'" >'.$label.'</label>
+            <input type="'.$tipe.'" id="'.$nama.'" class="form-control" name="'.$nama.'" value="'.$nilai.'" placeholder="'.$place.'">
+        
+    ';
+}
+function buat_inlinetutup_col(){
+	echo'</div>';
+}
+function buat_inlinetutup(){
+    echo'</div>';
 }
 
 function buat_combobox($label, $nama, $list, $nilai, $lebar='4'){

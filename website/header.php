@@ -12,17 +12,18 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400%7CSource+Sans+Pro:700" rel="stylesheet">
 
     <!-- Bootstrap -->
-    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
+    <link type="text/css" rel="stylesheet" href="<?php echo $set['url_website'];?>css/bootstrap.min.css" />
 
     <!-- Owl Carousel -->
-    <link type="text/css" rel="stylesheet" href="css/owl.carousel.css" />
-    <link type="text/css" rel="stylesheet" href="css/owl.theme.default.css" />
+    <link type="text/css" rel="stylesheet" href="<?php echo $set['url_website'];?>css/owl.carousel.css" />
+    <link type="text/css" rel="stylesheet" href="<?php echo $set['url_website'];?>css/owl.theme.default.css" />
 
     <!-- Font Awesome Icon -->
-    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="<?php echo $set['url_website'];?>css/font-awesome.min.css">
 
     <!-- Custom stlylesheet -->
-    <link type="text/css" rel="stylesheet" href="css/style.css" />
+    <link type="text/css" rel="stylesheet" href="<?php echo $set['url_website'];?>css/style.css" />
+    <link type="text/css" rel="stylesheet" href="<?php echo $set['url_website'];?>css/datatables.min.css" />
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -37,7 +38,7 @@
     <!-- HEADER -->
     <header>
         <!-- NAVGATION -->
-        <nav id="main-navbar">
+        <nav id="main-navbar" >
             <div class="container">
                 <div class="navbar-header">
                     <!-- Logo -->
@@ -94,7 +95,7 @@
                 <!-- Nav menu -->
                 <ul class="navbar-menu nav navbar-nav navbar-right">
                     <li><a href="<?php echo $set['url_website']; ?>">Home</a></li>
-                    <li><a href="tentang-kami">Tentang Kami</a></li>
+                    <li><a href="<?php echo $set['url_website'];?>tentang-kami">Tentang Kami</a></li>
                     <li class="has-dropdown"><a href="#">Program</a>
                         <ul class="dropdown">
                             <li><a href="single-cause.html">Sub Program</a></li>

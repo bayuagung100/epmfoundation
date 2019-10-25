@@ -39,18 +39,12 @@
             <!-- footer newsletter -->
             <div class="col-md-4">
                 <div class="footer">
-                    <h3 class="footer-title">Newsletter</h3>
-                    <p>Baca semua artikel-artikel terbaru dari kami dengan mencantumkan email anda disini.</p>
-                    <form class="footer-newsletter">
-                        <input class="input" type="email" placeholder="Enter your email">
-                        <button class="primary-button">Subscribe</button>
-                    </form>
+                    <h3 class="footer-title">Media Sosial   </h3>
                     <ul class="footer-social">
-                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                        <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                        <li><a href="https://api.whatsapp.com/send?phone=<?php echo $set['wa'];?>" target="_blank"><i class="fa fa-whatsapp"></i></a></li>
+                        <li><a href="<?php echo $set['fb'];?>" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="<?php echo $set['twitter'];?>" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="<?php echo $set['ig'];?>" target="_blank"><i class="fa fa-instagram"></i></a></li>
                     </ul>
                 </div>
             </div>
@@ -76,11 +70,33 @@
 <!-- /FOOTER -->
 
 <!-- jQuery Plugins -->
-<script src="js/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/owl.carousel.min.js"></script>
-<script src="js/jquery.stellar.min.js"></script>
-<script src="js/main.js"></script>
+<script src="<?php echo $set['url_website'];?>js/jquery.min.js"></script>
+<script src="<?php echo $set['url_website'];?>js/bootstrap.min.js"></script>
+<script src="<?php echo $set['url_website'];?>js/owl.carousel.min.js"></script>
+<script src="<?php echo $set['url_website'];?>js/jquery.stellar.min.js"></script>
+<script src="<?php echo $set['url_website'];?>js/main.js"></script>
+<script src="<?php echo $set['url_website'];?>js/datatables.min.js"></script>
+<script>
+$(document).ready(function() {
+    $('#donatur').DataTable();
+} );
+$(document).ready(function(){
+  $('#donasi').affix({offset: {top: 700} }); 
+});
+$('input.input-donasi').keyup(function(event) {
+
+// skip for arrow keys
+if(event.which >= 37 && event.which <= 40) return;
+
+// format number
+$(this).val(function(index, value) {
+  return value
+  .replace(/\D/g, "")
+  .replace(/\B(?=(\d{3})+(?!\d))/g, ".")
+  ;
+});
+});
+</script>
 
 </body>
 

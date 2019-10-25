@@ -72,7 +72,7 @@
 					<span>Dana Terhimpun</span>
 				</div>
 			</div>
-			
+
 		</div>
 	</div>
 </div>
@@ -88,43 +88,46 @@
 			</div>
 
 			<?php
-				$query = $mysqli->query("SELECT * FROM program order by id desc");
-				while ($data = $query->fetch_array()) {
-					$gambar = "./img/source/".$data['gambar'];
-					$kategori = $data['kategori'];
-					
-					$judul = $data['judul'];
-					$deskripsi = $data['deskripsi'];
-					$katquery = $mysqli->query("SELECT * FROM kategori_program WHERE id='$kategori' ");
-					while ($kdata = $katquery->fetch_array()) {
-						$nk = $kdata['kategori'];
+			$query = $mysqli->query("SELECT * FROM program ORDER BY id DESC LIMIT 6");
+			while ($data = $query->fetch_array()) {
+				$id = $data['id'];
+				$gambar = "./img/source/" . $data['gambar'];
+				$kategori = $data['kategori'];
 
-						echo'
+				$judul = $data['judul'];
+				$convert = convert_seo($judul);
+				$url = str_replace("--","-",$convert);
+				$deskripsi = $data['deskripsi'];
+				$katquery = $mysqli->query("SELECT * FROM kategori_program WHERE id='$kategori' ");
+				while ($kdata = $katquery->fetch_array()) {
+					$nk = $kdata['kategori'];
+
+					echo '
 						<div class="col-md-4">
 							<div class="causes">
 								<div class="causes-img">
-									<a href="single-cause.html">
-										<img src="'.$gambar.'" alt="'.$judul.'" style="height:230px">
+									<a href="'.$set["url_website"].'program/'.$url.'">
+										<img src="' . $gambar . '" alt="' . $judul . '" style="height:230px">
 									</a>
 								</div>
 								<div class="causes-progress">
 									<div>
-										<span class="causes-raised">Kategori: '.$nk.'</span>
+										<span class="causes-raised">Kategori: ' . $nk . '</span>
 									</div>
 								</div>
 								<div class="causes-content">
-									<h3><a href="single-cause.html">'.$judul.'</a></h3>
-									<p>'.limit_words($deskripsi, 20).'</p>
+									<h3><a href="'.$set["url_website"].'program/'.$url.'">' . $judul . '</a></h3>
+									<p>' . limit_words($deskripsi, 20) . '</p>
 									<a href="single-cause.html" class="primary-button causes-donate">Donasi</a>
 								</div>
 							</div>
 						</div>
 						';
-					}
 				}
+			}
 			?>
 
-			
+
 
 			<div class="col-md-12 text-center">
 				<button class="primary-button">PROGRAM LAINNYA</button>
@@ -159,78 +162,43 @@
 				</div>
 			</div>
 
-			<div class="col-md-6">
-				<div class="event">
-					<div class="event-img">
-						<a href="single-event.html">
-							<img src="./img/event-1.jpg" alt="">
-						</a>
-					</div>
-					<div class="event-content">
-						<h3><a href="single-event.html">Judul</a></h3>
-						<ul class="event-meta">
-							<li><i class="fa fa-clock-o"></i> Tanggal | Jam</li>
-							<li><i class="fa fa-map-marker"></i> Alamat</li>
-						</ul>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+			<?php
+			$query = $mysqli->query("SELECT * FROM acara ORDER BY id DESC LIMIT 6");
+			while ($data = $query->fetch_array()) {
+				$judul = $data['judul'];
+				$gambar = "./img/source/" . $data['gambar'];
+				$tanggal = tgl_indonesia($data['tanggal']);
+				$jam_mulai = $data['jam_mulai'];
+				$jam_selesai = $data['jam_selesai'];
+				$alamat = $data['alamat'];
+				$deskripsi = limit_words($data['deskripsi'], 20);
+
+				echo '
+				<div class="col-md-6">
+					<div class="event">
+						<div class="event-img">
+							<a href="single-event.html">
+								<img src="' . $gambar . '" alt="' . $judul . '" style="height:145px">
+							</a>
+						</div>
+						<div class="event-content">
+							<h3><a href="single-event.html">' . $judul . '</a></h3>
+							<ul class="event-meta">
+								<li><i class="fa fa-clock-o"></i> ' . $tanggal . ' | ' . $jam_mulai . ' - ' . $jam_selesai . '</li>
+								<li><i class="fa fa-map-marker"></i> ' . $alamat . '</li>
+							</ul>
+							<p>' . $deskripsi . '</p>
+						</div>
 					</div>
 				</div>
+				';
+			}
+			?>
+
+			<div class="col-md-12 text-center">
+				<button class="primary-button">ACARA LAINNYA</button>
 			</div>
 
-			<div class="col-md-6">
-				<div class="event">
-					<div class="event-img">
-						<a href="single-event.html">
-							<img src="./img/event-2.jpg" alt="">
-						</a>
-					</div>
-					<div class="event-content">
-						<h3><a href="single-event.html">Judul</a></h3>
-						<ul class="event-meta">
-							<li><i class="fa fa-clock-o"></i> Tanggal | Jam</li>
-							<li><i class="fa fa-map-marker"></i> Alamat</li>
-						</ul>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-					</div>
-				</div>
-			</div>
-
-			<div class="clearfix visible-md visible-lg"></div>
-			<div class="col-md-6">
-				<div class="event">
-					<div class="event-img">
-						<a href="single-event.html">
-							<img src="./img/event-3.jpg" alt="">
-						</a>
-					</div>
-					<div class="event-content">
-						<h3><a href="single-event.html">Judul</a></h3>
-						<ul class="event-meta">
-							<li><i class="fa fa-clock-o"></i> Tanggal | Jam</li>
-							<li><i class="fa fa-map-marker"></i> Alamat</li>
-						</ul>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-md-6">
-				<div class="event">
-					<div class="event-img">
-						<a href="single-event.html">
-							<img src="./img/event-4.jpg" alt="">
-						</a>
-					</div>
-					<div class="event-content">
-						<h3><a href="single-event.html">Judul</a></h3>
-						<ul class="event-meta">
-							<li><i class="fa fa-clock-o"></i> Tanggal | Jam</li>
-							<li><i class="fa fa-map-marker"></i> Alamat</li>
-						</ul>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-					</div>
-				</div>
-			</div>
 		</div>
 	</div>
 </div>
@@ -251,23 +219,23 @@
 							$visi = $data['visi'];
 							$misi = $data['misi'];
 
-						echo'
+							echo '
 						<div class="col-md-6">
 							<div class="cta-content visi">
 								<h3>Visi</h3>
-								<p class="lead">'.$visi.'</p>
+								<p class="lead">' . $visi . '</p>
 							</div>
 						</div>
 						<div class="col-md-6">
 							<div class="cta-content misi">
 								<h3>Misi</h3>
-								<p class="lead">'.$misi.'</p>
+								<p class="lead">' . $misi . '</p>
 							</div>
 						</div>
 						';
 						}
 						?>
-						
+
 					</div>
 				</div>
 			</div>
@@ -285,57 +253,43 @@
 					<p class="sub-title">Tetaplah terhubung dengan kami melalui artikel-artikel ini.</p>
 				</div>
 			</div>
+			<?php
+			$query = $mysqli->query("SELECT * FROM blog ORDER BY id DESC LIMIT 6");
+			while ($data = $query->fetch_array()) {
+				$judul = $data['judul'];
+				$gambar = "./img/source/" . $data['gambar'];
+				$tanggal = tgl_indonesia($data['tanggal']);
+				$deskripsi = limit_words($data['deskripsi'], 30);
+				$user = $data['user'];
 
-			<div class="col-md-4">
-				<div class="article">
-					<div class="article-img">
-						<a href="single-blog.html">
-							<img src="./img/post-1.jpg" alt="">
-						</a>
-					</div>
-					<div class="article-content">
-						<h3 class="article-title"><a href="single-blog.html">Judul</a></h3>
-						<ul class="article-meta">
-							<li>Tanggal</li>
-						</ul>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-					</div>
-				</div>
-			</div>
+				$uquery = $mysqli->query("SELECT * FROM user WHERE id='$user' ");
+				while ($udata = $uquery->fetch_array()) {
+					$nama = $udata['nama'];
 
-			<div class="col-md-4">
-				<div class="article">
-					<div class="article-img">
-						<a href="single-blog.html">
-							<img src="./img/post-2.jpg" alt="">
-						</a>
+					echo'
+					<div class="col-md-4">
+						<div class="article">
+							<div class="article-img">
+								<a href="single-blog.html">
+									<img src="'.$gambar.'" alt="'.$judul.'" style="height:230px">
+								</a>
+							</div>
+							<div class="article-content">
+								<h3 class="article-title"><a href="single-blog.html">'.$judul.'</a></h3>
+								<ul class="article-meta">
+									<li>Tanggal: '.$tanggal.'</li>
+									<li></li>
+									<li>Diposting oleh: '.$nama.'</li>
+								</ul>
+								<p>'.$deskripsi.'</p>
+							</div>
+						</div>
 					</div>
-					<div class="article-content">
-						<h3 class="article-title"><a href="single-blog.html">Judul</a></h3>
-						<ul class="article-meta">
-							<li>Tanggal</li>
-						</ul>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-md-4">
-				<div class="article">
-					<div class="article-img">
-						<a href="single-blog.html">
-							<img src="./img/post-3.jpg" alt="">
-						</a>
-					</div>
-					<div class="article-content">
-						<h3 class="article-title"><a href="single-blog.html">Judul</a></h3>
-						<ul class="article-meta">
-							<li>Tanggal</li>
-						</ul>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-					</div>
-				</div>
-			</div>
+					';
+				}
+			}
+			?>
+			
 		</div>
 	</div>
 </div>

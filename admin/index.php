@@ -90,7 +90,7 @@ if (empty($_SESSION['username']) or empty($_SESSION['password']) or $_SESSION['l
             </div>
         </div>
 
-        
+
         <!-- jQuery UI 1.11.4 -->
         <script src="plugins/jquery-ui/jquery-ui.min.js"></script>
         <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
@@ -150,11 +150,19 @@ if (empty($_SESSION['username']) or empty($_SESSION['password']) or $_SESSION['l
                 });
             });
         </script>
+        <!-- date-range-picker -->
+        <script src="plugins/daterangepicker/daterangepicker.js"></script>
+        <script>
+        //Timepicker
+            $('#timepicker').datetimepicker({
+                format: 'LT'
+            })
+        </script>
         <!-- overlayScrollbars -->
         <script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
         <!-- AdminLTE App -->
         <script src="dist/js/adminlte.js"></script>
-        
+
         <!-- AdminLTE for demo purposes -->
         <script src="dist/js/demo.js"></script>
     </body>

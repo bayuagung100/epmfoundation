@@ -1,9 +1,16 @@
 <IfModule mod_rewrite.c>
 RewriteEngine on
 
+RewriteRule ^(.*)/$ /$1 [L,R]
+
 RewriteRule ^$ index.php [L]
 
 RewriteRule ^tentang-kami$ index.php?content=tentang-kami [L]
+
+
+RewriteRule ^program/(.*)$ index.php?content=program&id=$1 [L]
+RewriteRule ^program$ index.php?content=program-all [L]
+
 
 RewriteRule ^product/([0-9]+)/(.*)/$ index.php?content=product&id=$1 [L]
 RewriteRule ^product/$ index.php?content=product-all [L]
