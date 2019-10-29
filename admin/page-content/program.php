@@ -42,9 +42,9 @@ switch($show){
                         $katquery = $mysqli->query("SELECT * FROM kategori_program WHERE id='$kategori' ");
                         while ($kat = $katquery->fetch_array()) {
                             $kp = $kat['kategori'];
-                            isi_table_program($no, array($judul, "<img src='".$pic."' width='150' style='margin-bottom: 10px'>", limit_words(strip_tags($deskripsi),10), $kp),$link ,$data['id']);
-                            $no++;
                         }
+                        isi_table_program($no, array($judul, "<img src='".$pic."' width='150' style='margin-bottom: 10px'>", limit_words(strip_tags($deskripsi),10), $kp),$link ,$data['id']);
+                            $no++;
                 }
 
                 tutup_tabel_program(array("Judul","Gambar","Deskripsi","Kategori"));

@@ -88,7 +88,8 @@
 			</div>
 
 			<?php
-			$query = $mysqli->query("SELECT * FROM program ORDER BY id DESC LIMIT 6");
+			$query = $mysqli->query("SELECT * FROM program ORDER BY id DESC");
+			$jml = $query->num_rows;
 			while ($data = $query->fetch_array()) {
 				$id = $data['id'];
 				$gambar = "./img/source/" . $data['gambar'];
@@ -96,41 +97,42 @@
 
 				$judul = $data['judul'];
 				$convert = convert_seo($judul);
-				$url = str_replace("--","-",$convert);
+				$url = str_replace("--", "-", $convert);
 				$deskripsi = $data['deskripsi'];
 				$katquery = $mysqli->query("SELECT * FROM kategori_program WHERE id='$kategori' ");
-				while ($kdata = $katquery->fetch_array()) {
-					$nk = $kdata['kategori'];
+				$kdata = $katquery->fetch_array();
+				$nk = $kdata['kategori'];
 
-					echo '
-						<div class="col-md-4">
-							<div class="causes">
-								<div class="causes-img">
-									<a href="'.$set["url_website"].'program/'.$url.'">
-										<img src="' . $gambar . '" alt="' . $judul . '" style="height:230px">
-									</a>
-								</div>
-								<div class="causes-progress">
-									<div>
-										<span class="causes-raised">Kategori: ' . $nk . '</span>
-									</div>
-								</div>
-								<div class="causes-content">
-									<h3><a href="'.$set["url_website"].'program/'.$url.'">' . $judul . '</a></h3>
-									<p>' . limit_words($deskripsi, 20) . '</p>
-									<a href="single-cause.html" class="primary-button causes-donate">Donasi</a>
+				echo '
+					<div class="col-md-4">
+						<div class="causes">
+							<div class="causes-img">
+								<a href="' . $set["url_website"] . 'program/' . $url . '">
+									<img src="' . $gambar . '" alt="' . $judul . '" style="height:230px">
+								</a>
+							</div>
+							<div class="causes-progress">
+								<div>
+									<span class="causes-raised">Kategori: ' . $nk . '</span>
 								</div>
 							</div>
+							<div class="causes-content">
+								<h3><a href="' . $set["url_website"] . 'program/' . $url . '">' . $judul . '</a></h3>
+								<p>' . limit_words(strip_tags($deskripsi), 20) . '</p>
+								<a href="' . $set["url_website"] . 'program/' . $url . '" class="primary-button causes-donate">Donasi</a>
+							</div>
 						</div>
-						';
+					</div>
+					';
+				if ($jml % 3 == 1) {
+					echo '<div class="clearfix visible-md visible-lg"></div>';
 				}
+				$jml++;
 			}
 			?>
 
-
-
 			<div class="col-md-12 text-center">
-				<button class="primary-button">PROGRAM LAINNYA</button>
+				<a href="<?php echo $set["url_website"] . 'program'; ?>" style="color:#fff"><button class="primary-button">PROGRAM LAINNYA</button></a>
 			</div>
 		</div>
 	</div>
@@ -166,6 +168,7 @@
 			$query = $mysqli->query("SELECT * FROM acara ORDER BY id DESC LIMIT 6");
 			while ($data = $query->fetch_array()) {
 				$judul = $data['judul'];
+				$url = $data['url'];
 				$gambar = "./img/source/" . $data['gambar'];
 				$tanggal = tgl_indonesia($data['tanggal']);
 				$jam_mulai = $data['jam_mulai'];
@@ -177,12 +180,12 @@
 				<div class="col-md-6">
 					<div class="event">
 						<div class="event-img">
-							<a href="single-event.html">
+							<a href="' . $set["url_website"] . 'acara/' . $url . '">
 								<img src="' . $gambar . '" alt="' . $judul . '" style="height:145px">
 							</a>
 						</div>
 						<div class="event-content">
-							<h3><a href="single-event.html">' . $judul . '</a></h3>
+							<h3><a href="' . $set["url_website"] . 'acara/' . $url . '">' . $judul . '</a></h3>
 							<ul class="event-meta">
 								<li><i class="fa fa-clock-o"></i> ' . $tanggal . ' | ' . $jam_mulai . ' - ' . $jam_selesai . '</li>
 								<li><i class="fa fa-map-marker"></i> ' . $alamat . '</li>
@@ -196,7 +199,7 @@
 			?>
 
 			<div class="col-md-12 text-center">
-				<button class="primary-button">ACARA LAINNYA</button>
+				<a href="<?php echo $set["url_website"] . 'acara'; ?>" style="color:#fff"><button class="primary-button">ACARA LAINNYA</button></a>
 			</div>
 
 		</div>
@@ -257,6 +260,7 @@
 			$query = $mysqli->query("SELECT * FROM blog ORDER BY id DESC LIMIT 6");
 			while ($data = $query->fetch_array()) {
 				$judul = $data['judul'];
+				$url = $data['url'];
 				$gambar = "./img/source/" . $data['gambar'];
 				$tanggal = tgl_indonesia($data['tanggal']);
 				$deskripsi = limit_words($data['deskripsi'], 30);
@@ -266,22 +270,22 @@
 				while ($udata = $uquery->fetch_array()) {
 					$nama = $udata['nama'];
 
-					echo'
+					echo '
 					<div class="col-md-4">
 						<div class="article">
 							<div class="article-img">
-								<a href="single-blog.html">
-									<img src="'.$gambar.'" alt="'.$judul.'" style="height:230px">
+								<a href="' . $set["url_website"] . 'blog/' . $url . '">
+									<img src="' . $gambar . '" alt="' . $judul . '" style="height:230px">
 								</a>
 							</div>
 							<div class="article-content">
-								<h3 class="article-title"><a href="single-blog.html">'.$judul.'</a></h3>
+								<h3 class="article-title"><a href="' . $set["url_website"] . 'blog/' . $url . '">' . $judul . '</a></h3>
 								<ul class="article-meta">
-									<li>Tanggal: '.$tanggal.'</li>
+									<li>Tanggal: ' . $tanggal . '</li>
 									<li></li>
-									<li>Diposting oleh: '.$nama.'</li>
+									<li>Diposting oleh: ' . $nama . '</li>
 								</ul>
-								<p>'.$deskripsi.'</p>
+								<p>' . $deskripsi . '</p>
 							</div>
 						</div>
 					</div>
@@ -289,7 +293,11 @@
 				}
 			}
 			?>
-			
+
+			<div class="col-md-12 text-center">
+				<a href="<?php echo $set["url_website"] . 'blog'; ?>" style="color:#fff"><button class="primary-button">LIHAT SEMUA</button></a>
+			</div>
+
 		</div>
 	</div>
 </div>

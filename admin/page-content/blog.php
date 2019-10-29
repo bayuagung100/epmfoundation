@@ -86,6 +86,8 @@ switch($show){
         
     case "action":
         $judul	= ucwords(addslashes($_POST['judul']));
+        $convert = convert_seo($judul);
+        $url = str_replace("--","-",$convert);
         $gambar	= addslashes($_POST['gambar']);
         $tanggal	= date("Y-m-d");
         $deskripsi	= addslashes($_POST['deskripsi']);
@@ -95,6 +97,7 @@ switch($show){
             $query = $mysqli->query("INSERT INTO blog
             (
                 judul,
+                url,
                 gambar,
                 tanggal,
                 deskripsi,
@@ -103,6 +106,7 @@ switch($show){
             VALUES
             (
                 '$judul',
+                '$url',
                 '$gambar',
                 '$tanggal',
                 '$deskripsi',
@@ -113,6 +117,7 @@ switch($show){
         if ($_POST['aksi']=="edit") {
             $query = $mysqli->query("UPDATE blog SET
             judul = '$judul',
+            url = '$url',
             gambar = '$gambar',
             deskripsi = '$deskripsi'
 

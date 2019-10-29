@@ -425,16 +425,22 @@
         </table>
     </div>
     <div class="widget">
-        <h3 class="widget-title">Acara</h3>
+        <h3 class="widget-title">Latest Acara</h3>
         <?php
         $query = $mysqli->query("SELECT * FROM acara ORDER BY id DESC LIMIT 3");
         while ($data = $query->fetch_array()) {
             $judul = $data['judul'];
             $gambar = $set['url_website'] . "/img/source/" . $data['gambar'];
+            $tanggal_posting = tgl_indonesia($data['tanggal_posting']);
             $tanggal = tgl_indonesia($data['tanggal']);
             $jam_mulai = $data['jam_mulai'];
             $jam_selesai = $data['jam_selesai'];
             $alamat = $data['alamat'];
+            $userid = $data['user'];
+
+            $uquery = $mysqli->query("SELECT * FROM user WHERE id='$userid' ");
+            $user = $uquery->fetch_array();
+            $nama = $user['nama'];
             echo '
                     <div class="widget-post">
                         <a href="#">
@@ -451,6 +457,7 @@
                         </a>
                         <ul class="article-meta">
                             <li>By: ' . $nama . '</li>
+                            <li>' . $tanggal_posting . '</li>
                         </ul>
                     </div>
                     

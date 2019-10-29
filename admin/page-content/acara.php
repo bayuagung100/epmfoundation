@@ -101,39 +101,50 @@ switch($show){
         
     case "action":
         $judul	= ucwords(addslashes($_POST['judul']));
+        $convert = convert_seo($judul);
+        $url = str_replace("--","-",$convert);
         $gambar	= addslashes($_POST['gambar']);
+        $tanggal_posting	= date("Y-m-d");
         $tanggal	= addslashes($_POST['tanggal']);
         $jam_mulai	= addslashes($_POST['jam_mulai']);
         $jam_selesai	= addslashes($_POST['jam_selesai']);
         $alamat	= addslashes($_POST['alamat']);
         $deskripsi	= addslashes($_POST['deskripsi']);
+        $user = $_SESSION['id'];
 
         if ($_POST['aksi']=="tambah") {
             $query = $mysqli->query("INSERT INTO acara
             (
                 judul,
+                url,
                 gambar,
+                tanggal_posting,
                 tanggal,
                 jam_mulai,
                 jam_selesai,
                 alamat,
-                deskripsi
+                deskripsi,
+                user
             )
             VALUES
             (
                 '$judul',
+                '$url',
                 '$gambar',
+                '$tanggal_posting',
                 '$tanggal',
                 '$jam_mulai',
                 '$jam_selesai',
                 '$alamat',
-                '$deskripsi'
+                '$deskripsi',
+                '$user'
             )
             ");
         }
         if ($_POST['aksi']=="edit") {
             $query = $mysqli->query("UPDATE acara SET
             judul = '$judul',
+            url = '$url',
             gambar = '$gambar',
             tanggal = '$tanggal',
             jam_mulai = '$jam_mulai',

@@ -97,7 +97,82 @@ $(this).val(function(index, value) {
 });
 });
 </script>
-
+<script type="text/javascript">
+$(document).ready(function(){
+    $(document).on('click','.more_program',function(){
+        var ID = $(this).attr('id');
+        $('.more_program').hide();
+        $('.loading_program').show();
+        $.ajax({
+            type:'POST',
+            url:'more-program.php',
+            data:'id='+ID,
+            success:function(html){
+                $('#more_program_main'+ID).remove();
+                $('#post_program').append(html);
+            }
+        });
+    });
+    $(document).on('click','.more_kategori',function(){
+        var ID = $(this).attr('id');
+        var NAME = $(this).attr('name');
+        $('.more_kategori').hide();
+        $('.loading_kategori').show();
+        $.ajax({
+            type:'POST',
+            url:'more-kategori.php',
+            data:{id: ID, name: NAME},
+            success:function(html){
+                $('#more_kategori_main'+ID).remove();
+                $('#post_kategori').append(html);
+            }
+        });
+    });
+    $(document).on('click','.more_search',function(){
+        var ID = $(this).attr('id');
+        var NAME = $(this).attr('name');
+        $('.more_search').hide();
+        $('.loading_search').show();
+        $.ajax({
+            type:'POST',
+            url:'more-search.php',
+            data:{id: ID, name: NAME},
+            success:function(html){
+                $('#more_search_main'+ID).remove();
+                $('#post_search').append(html);
+            }
+        });
+    });
+    $(document).on('click','.more_acara',function(){
+        var ID = $(this).attr('id');
+        $('.more_acara').hide();
+        $('.loading_acara').show();
+        $.ajax({
+            type:'POST',
+            url:'more-acara.php',
+            data:'id='+ID,
+            success:function(html){
+                $('#more_acara_main'+ID).remove();
+                $('#post_acara').append(html);
+            }
+        });
+    });
+    $(document).on('click','.more_blog',function(){
+        var ID = $(this).attr('id');
+        $('.more_blog').hide();
+        $('.loading_blog').show();
+        $.ajax({
+            type:'POST',
+            url:'more-blog.php',
+            data:'id='+ID,
+            success:function(html){
+                $('#more_blog_main'+ID).remove();
+                $('#post_blog').append(html);
+            }
+        });
+    });
+});
+</script>
 </body>
 
 </html>

@@ -2,10 +2,9 @@
 <html lang="ID">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Epm Foundation</title>
 
     <!-- Google font -->
@@ -96,14 +95,14 @@
                 <ul class="navbar-menu nav navbar-nav navbar-right">
                     <li><a href="<?php echo $set['url_website']; ?>">Home</a></li>
                     <li><a href="<?php echo $set['url_website'];?>tentang-kami">Tentang Kami</a></li>
-                    <li class="has-dropdown"><a href="#">Program</a>
+                    <li class="has-dropdown"><a href="">Program</a>
                         <ul class="dropdown">
-                            <li><a href="single-cause.html">Sub Program</a></li>
+                            <li><a href="<?php echo $set['url_website'];?>program">Program Pilihan</a></li>
                         </ul>
                     </li>
                     <li class="has-dropdown"><a href="#">Acara</a>
                         <ul class="dropdown">
-                            <li><a href="single-event.html">Sub Acara</a></li>
+                            <li><a href="<?php echo $set['url_website'];?>acara">Acara Mendatang</a></li>
                         </ul>
                     </li>
                     <li class="has-dropdown"><a href="#">Blog</a>
