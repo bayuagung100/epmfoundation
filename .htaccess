@@ -16,6 +16,8 @@ RewriteRule ^acara$ index.php?content=acara-all [L]
 RewriteRule ^blog/(.*)$ index.php?content=blog&id=$1 [L]
 RewriteRule ^blog$ index.php?content=blog-all [L]
 
+RewriteRule ^auth$ auth.php [L]
+
 
 
 </IfModule>

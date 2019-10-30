@@ -27,9 +27,8 @@
             <div class="col-sm-12 col-md-3" style="margin-bottom:15px">
 
                 <form action="" method="post">
-                    <input type="hidden" name="aksi" value="search">
                     <div class="input-group" style="margin-bottom:10px">
-                        <input type="text" class="form-control" name="cari" placeholder="Cari program" required>
+                        <input type="search" class="form-control" name="cari" placeholder="Cari program" required>
                         <div class="input-group-btn">
                             <button class="btn btn-default" style="background-color: #83ba09;color:#fff;">
                                 <i class="fa fa-search"></i>

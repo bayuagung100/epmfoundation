@@ -52,15 +52,16 @@
                     </button>
                     <!-- Mobile toggle -->
 
-                    <!-- Mobile Search toggle -->
+                    <!-- Mobile user toggle -->
                     <button class="user-toggle-btn">
                         <i class="fa fa-user"></i>
                     </button>
+                    <!-- Mobile user toggle -->
+
                     <!-- Mobile Search toggle -->
-                    <!-- Mobile Search toggle -->
-                    <button class="search-toggle-btn">
+                    <!-- <button class="search-toggle-btn">
                         <i class="fa fa-search"></i>
-                    </button>
+                    </button> -->
                     <!-- Mobile Search toggle -->
                 </div>
 
@@ -70,25 +71,26 @@
                     <div class="user-form">
                         <h4>Login Sukarelawan.</h4>
                         <p>Isi email dan password Anda untuk login.</p>
-                        <form>
-                            <input class="input" type="text" name="email" placeholder="email">
+                        <form action="<?php echo $set['url_website'];?>auth" method="post">
+                            <input type="hidden" name="oauth" value="login">
+                            <input class="input" type="email" name="email" placeholder="email" required>
                             <br>
-                            <input class="input" type="password" name="password" placeholder="password">
+                            <input class="input" type="password" name="password" placeholder="password" required>
                             <button type="submit" class="primary-button">Login</button>
 
                         </form>
-                        <p>Lupa password? <a href="#">Klik Disini</a></p>
-                        <p>Belum punya akun? <a href="#">Daftar Disini</a></p>
+                        <p>Lupa password? <a href="<?php echo $set['url_website'];?>auth?lupa-password">Klik Disini</a></p>
+                        <p>Belum punya akun? <a href="<?php echo $set['url_website'];?>auth?daftar">Daftar Disini</a></p>
                     </div>
                 </div>
-                <div class="navbar-search">
+                <!-- <div class="navbar-search">
                     <button class="search-btn"><i class="fa fa-search"></i></button>
                     <div class="search-form">
                         <form>
                             <input class="input" type="text" name="search" placeholder="Search">
                         </form>
                     </div>
-                </div>
+                </div> -->
                 <!-- Search -->
 
                 <!-- Nav menu -->
@@ -107,8 +109,7 @@
                     </li>
                     <li class="has-dropdown"><a href="#">Blog</a>
                         <ul class="dropdown">
-                            <li><a href="blog.html">Blog Page</a></li>
-                            <li><a href="single-blog.html">Single Blog</a></li>
+                            <li><a href="<?php echo $set['url_website'];?>blog">Our Blog</a></li>
                             <li><a href="#">Galeri</a></li>
                         </ul>
                     </li>
