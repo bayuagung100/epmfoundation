@@ -81,6 +81,9 @@
         $('#donatur').DataTable();
     });
     $(document).ready(function() {
+        $('#sukarelawan').DataTable();
+    });
+    $(document).ready(function() {
         $('#donasi').affix({
             offset: {
                 top: 700

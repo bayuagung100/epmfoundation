@@ -438,6 +438,14 @@ textarea.input {
   transform: translateY(0px);
 }
 
+.user-form ul>li {
+  border: 2px solid #e6e6ea;
+
+  display: block;
+
+  padding: 15px 15px;
+}
+
 .user-toggle-btn,
 .user-toggle-btn {
   float: right;
@@ -1785,4 +1793,104 @@ tr:nth-child(even) {
 
 .card-auth:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.sukarelawan {
+  padding: 15px;
+  margin: 50px auto;
+}
+
+.sukarelawan .card {
+  padding: 15px;
+  margin-bottom: 20px;
+  background-color: #f5f5f5;
+  border: 1px solid #e3e3e3;
+}
+
+.sukarelawan form .form-group {
+  margin-bottom: 15px;
+  border-bottom: 1px solid #E5E5E5 !important;
+}
+
+.sukarelawan form label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: block;
+  width: 100%;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 24px;
+
+}
+
+.sukarelawan form input {
+  position: relative;
+  display: inline-block;
+  height: 24px;
+  font-size: 15px;
+  line-height: 19.2px;
+  color: #555;
+  border-radius: 4px;
+  vertical-align: middle;
+  box-shadow: none;
+  box-sizing: border-box;
+  width: 100%;
+  height: auto;
+  border: none;
+  padding: 0;
+  background-color:
+    transparent;
+  color:
+    rgba(75, 89, 102, 0.85);
+}
+
+.sukarelawan form .show {
+  float: right;
+  margin-top: -20px;
+  position: relative;
+  z-index: 2;
+  padding-right: 10px;
+  cursor: pointer;
+}
+
+
+.sukarelawan .menu {
+  margin-bottom: 50px;
+}
+
+.menu-title {
+  font-size: 18px;
+  font-weight: 400;
+  color: #272727;
+  position: relative;
+}
+
+.menu-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -19px;
+  width: 40px;
+  height: 2px;
+  background-color: #f0ba14;
+  margin-bottom: 10px;
+}
+
+.menu ul {
+  list-style: none;
+}
+
+.menu ul li a {
+  text-transform: uppercase;
+  display: block;
+  width: 100%;
+  color: #272727;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 51px;
+  transition: .2s ease;
+  border-bottom: 1px solid #e3e3e3;
 }

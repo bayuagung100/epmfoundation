@@ -17,7 +17,13 @@ RewriteRule ^blog/(.*)$ index.php?content=blog&id=$1 [L]
 RewriteRule ^blog$ index.php?content=blog-all [L]
 
 RewriteRule ^auth$ auth.php [L]
+RewriteRule ^logout$ logout.php [L]
 
+RewriteRule ^sukarelawan$ index.php?content=sukarelawan/index [L]
+RewriteRule ^sukarelawan/dashboard$ index.php?content=sukarelawan/dashboard [L]
+RewriteRule ^sukarelawan/profile$ index.php?content=sukarelawan/profile [L]
+RewriteRule ^sukarelawan/profile/edit$ index.php?content=sukarelawan/profile-edit [L]
+RewriteRule ^sukarelawan/ubah-password$ index.php?content=sukarelawan/ubah-password [L]
 
 
 </IfModule>

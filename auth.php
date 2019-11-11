@@ -1,4 +1,5 @@
 <?php
+session_start();
 include "admin/config.php";
 include "website/header.php";
 echo "</header>";
@@ -95,7 +96,7 @@ if (isset($_GET['daftar'])) { ?>
                 <div class="text-center">
                     <h3 style="text-transform: uppercase;">Ganti Password Baru</h3>
                     <?php
-                        if ($_GET['pesan'] == "gagal") {
+                        if (isset($_GET['pesan']) == "gagal") {
                             echo '<div class="alert alert-danger" role="alert"><b>Sorry!</b> Password yang anda masukkan tidak sama.</div>';
                         }
                         ?>
@@ -103,6 +104,8 @@ if (isset($_GET['daftar'])) { ?>
                 <hr>
                 <form action="auth" method="post">
                     <input type="hidden" name="oauth" value="ganti-password">
+                    <input type="hidden" name="reset-password" value="<?php echo $_GET['reset-password']; ?>">
+                    <input type="hidden" name="email" value="<?php echo $_GET['email']; ?>">
                     <div class="form-group">
                         <label for="password">Password<span style="color:red">*</span></label>
                         <input type="password" id="password" placeholder="Password" name="password" required>
@@ -128,6 +131,10 @@ if (isset($_GET['daftar'])) { ?>
                     <?php
                         if ($_GET['login'] == "new-member") {
                             echo '<div class="alert alert-success" role="alert">Pendaftaran berhasil. Silahkan login!</div>';
+                        } elseif ($_GET['login'] == "after-reset") {
+                            echo '<div class="alert alert-success" role="alert">Reset password berhasil. Silahkan login!</div>';
+                        } elseif ($_GET['login'] == "gagal") {
+                            echo '<div class="alert alert-danger" role="alert"><b>Sorry!</b> Username atau password yang anda masukkan salah.</div>';
                         }
                         ?>
                     <p>
@@ -147,6 +154,9 @@ if (isset($_GET['daftar'])) { ?>
                         <span toggle="#password" class="fa fa-eye show toggle-password" aria-hidden="true"> Lihat</span>
                     </div>
                     <button class="primary-button" type="submit">Login</button>
+                    <hr>
+                    <p>Lupa password? <a href="<?php echo $set['url_website']; ?>auth?lupa-password">Klik Disini</a></p>
+                    <p>Belum punya akun? <a href="<?php echo $set['url_website']; ?>auth?daftar">Daftar Disini</a></p>
                 </form>
             </div>
         </div>
@@ -154,15 +164,45 @@ if (isset($_GET['daftar'])) { ?>
 <?php
 } elseif ($_POST['oauth'] == "login") {
     $email = $_POST['email'];
-    $password = $_POST['password'];
+    $password = md5($_POST['password']);
+
+    $query = $mysqli->query("SELECT * FROM sukarelawan WHERE email='$email' AND password='$password'");
+    $jmluser = $query->num_rows;
+    $data = $query->fetch_array();
+
+    if ($jmluser > 0) {
+        $_SESSION['id']       = $data['id'];
+        $_SESSION['nama_lengkap']     = $data['nama_lengkap'];
+        $_SESSION['alamat']  = $data['alamat'];
+        $_SESSION['kota']     = $data['kota'];
+        $_SESSION['no_hp']       = $data['no_hp'];
+        $_SESSION['email']    = $data['email'];
+        $_SESSION['password']    = $data['password'];
+
+
+        $_SESSION['log'] = 1;
+
+        echo '
+        <script>
+        window.location = "' . $set['url_website'] . '";
+        </script>
+        ';
+    } else {
+        echo '
+        <script>
+        window.location = "' . $set['url_website'] . 'auth?login=gagal";
+        </script>
+        ';
+    }
 } elseif ($_POST['oauth'] == "daftar") {
-    $nama = $_POST['nama'];
+    $nama = ucwords($_POST['nama']);
     $alamat = $_POST['alamat'];
     $kota = $_POST['kota'];
     $hp = $_POST['hp'];
     $email = $_POST['email'];
     $password = $_POST['password'];
     $password_repeat = $_POST['password_repeat'];
+    $md5password = md5($_POST['password']);
 
     if ($password != $password_repeat) {
         echo '
@@ -171,11 +211,32 @@ if (isset($_GET['daftar'])) { ?>
         </script>
         ';
     } else {
-        echo '
-        <script>
-        window.location = "' . $set['url_website'] . 'auth?login=new-member";
-        </script>
-        ';
+        $query = $mysqli->query("INSERT INTO sukarelawan
+            (
+                nama_lengkap,
+                alamat,
+                kota,
+                no_hp,
+                email,
+                password
+            )
+            VALUES
+            (
+                '$nama',
+                '$alamat',
+                '$kota',
+                '$hp',
+                '$email',
+                '$md5password'
+            )
+        ");
+        if ($query) {
+            echo '
+            <script>
+            window.location = "' . $set['url_website'] . 'auth?login=new-member";
+            </script>
+            ';
+        }
     }
 } elseif ($_POST['oauth'] == "lupa-password") {
     $email = $_POST['email'];
@@ -185,28 +246,23 @@ if (isset($_GET['daftar'])) { ?>
         </script>
         ';
 } elseif ($_POST['oauth'] == "ganti-password") {
-    $reset = $_GET['reset-password'];
-    $email = $_GET['email'];
+    $reset = $_POST['reset-password'];
+    $email = $_POST['email'];
     $password = $_POST['password'];
     $password_repeat = $_POST['password_repeat'];
     if ($password != $password_repeat) {
         echo '
         <script>
-        window.location = "' . $set['url_website'] . 'auth?reset-password='.$reset.'&email='.$email.'&pesan=gagal";
+        window.location = "' . $set['url_website'] . 'auth?reset-password=' . $reset . '&email=' . $email . '&pesan=gagal";
         </script>
         ';
     } else {
         echo '
         <script>
-        window.location = "' . $set['url_website'] . 'auth?login";
+        window.location = "' . $set['url_website'] . 'auth?login=after-reset";
         </script>
         ';
     }
-    echo '
-        <script>
-        window.location = "' . $set['url_website'] . 'auth?login";
-        </script>
-        ';
 } else {
     echo '
         <script>
