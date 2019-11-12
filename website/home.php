@@ -10,7 +10,7 @@
 						<div class="home-content">
 							<h1>Selamatkan Anak-Anak</h1>
 							<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-							<a href="#" class="primary-button">Donasi Sekarang</a>
+							<a href="<?php echo $set["url_website"];?>donasi" class="primary-button">Donasi Sekarang</a>
 						</div>
 					</div>
 				</div>

@@ -794,6 +794,7 @@ textarea.input {
   color: #FFF;
 }
 
+
 /*=========================================================
 	TESTIMONIAL
 ===========================================================*/
@@ -1741,6 +1742,46 @@ tr:nth-child(even) {
   margin: 50px auto;
 }
 
+.card-auth .form-group {
+  margin-bottom: 15px;
+  border-bottom: 1px solid #E5E5E5 !important;
+}
+
+.card-auth label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: block;
+  width: 100%;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 24px;
+
+}
+
+.card-auth input {
+  position: relative;
+  display: inline-block;
+  height: 24px;
+  font-size: 15px;
+  line-height: 19.2px;
+  color: #555;
+  border-radius: 4px;
+  vertical-align: middle;
+  box-shadow: none;
+  box-sizing: border-box;
+  width: 100%;
+  height: auto;
+  border: none;
+  padding: 0;
+  background-color:
+    transparent;
+  color:
+    rgba(75, 89, 102, 0.85);
+}
+
 .card-auth form .form-group {
   margin-bottom: 15px;
   border-bottom: 1px solid #E5E5E5 !important;
@@ -1893,4 +1934,104 @@ tr:nth-child(even) {
   line-height: 51px;
   transition: .2s ease;
   border-bottom: 1px solid #e3e3e3;
+}
+
+
+/*=========================================================
+	Donasi
+===========================================================*/
+
+.row.donasi {
+  padding: 90px 0px;
+}
+
+.donasi-judul{
+  color: #FFF;
+  font-size: 55px;
+}
+.donasi-tag {
+  color: #FFF;
+}
+
+.card-donasi {
+  background-color: #FFF;
+  padding: 15px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  position: relative;
+  max-width: 550px;
+}
+
+.card-donasi h1{
+  color: #000;
+}
+
+/* HIDE RADIO */
+[type=radio] {
+	position: absolute;
+	opacity: 0;
+	width: 0;
+	height: 0;
+}
+
+
+
+.radio-donasi{
+  background-color: #83ba09;
+  padding: 10px;
+  cursor: pointer;
+  color: #FFF;
+  text-align: center;
+}
+[type=radio]:checked+.radio-donasi {
+	border: 1px solid #f00;
+}
+
+.jumlah-lain {
+  background-color:#0099ff;
+  color: #FFF;
+  padding: 10px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+[type=radio]:checked+.drinkcard-cc {
+	border: 1px solid #f00;
+}
+
+.cc-selector input{
+  margin:0;padding:0;
+  -webkit-appearance:none;
+     -moz-appearance:none;
+          appearance:none;
+}
+
+.bri{background-image:url(https://donasionline.id/images/bank_bri_logo.png);}
+.mandiri{background-image:url(https://donasionline.id/images/bank_mandiri_logo.png);}
+.bni-syariah{background-image:url(https://donasionline.id/images/bank_bni_syariah_logo.png);}
+.bca{background-image:url(https://donasionline.id/images/bank_bca_logo.png);}
+
+.cc-selector-2 input:active +.drinkcard-cc, .cc-selector input:active +.drinkcard-cc{opacity: .9;}
+.cc-selector-2 input:checked +.drinkcard-cc, .cc-selector input:checked +.drinkcard-cc{
+  -webkit-filter: none;
+     -moz-filter: none;
+          filter: none;
+}
+.drinkcard-cc{
+  cursor:pointer;
+  background-size:contain;
+  background-repeat:no-repeat;
+  display:inline-block;
+  width:100px;height:50px;
+  -webkit-transition: all 100ms ease-in;
+     -moz-transition: all 100ms ease-in;
+          transition: all 100ms ease-in;
+  -webkit-filter: brightness(1.8) grayscale(1) opacity(.7);
+     -moz-filter: brightness(1.8) grayscale(1) opacity(.7);
+          filter: brightness(1.8) grayscale(1) opacity(.7);
+}
+.drinkcard-cc:hover{
+  -webkit-filter: brightness(1.2) grayscale(.5) opacity(.9);
+     -moz-filter: brightness(1.2) grayscale(.5) opacity(.9);
+          filter: brightness(1.2) grayscale(.5) opacity(.9);
 }

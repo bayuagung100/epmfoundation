@@ -51,7 +51,7 @@ while ($data = $query->fetch_array()) {
                 </div>
                 <div class="col-md-3">
                     <h3 class="widget-title">Donasi Sekarang</h3>
-                    <form id="donasi">
+                    <form id="donasi" action="<?php echo $set['url_website']; ?>donasi" method="get">
                         <div class="input-group" style="margin-bottom:10px">
                             <span class="input-group-addon" style="background-color:#83ba09;color:#FFF">Rp.</span>
                             <input type="text" class="form-control input-donasi" name="donasi" placeholder="0" style="text-transform: none;" maxlength="11" required>

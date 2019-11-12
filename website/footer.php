@@ -197,6 +197,12 @@
         }
     });
 </script>
+<script type="text/javascript">
+$(document).on('click', '#btn-jml-lain', function() {
+            $('#jml-lain').show();
+           
+        });
+</script>
 </body>
 
 </html>
