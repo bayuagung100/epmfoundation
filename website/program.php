@@ -2,6 +2,7 @@
 $id = $_GET['id'];
 $query = mysqli_query($mysqli, "SELECT * FROM program WHERE url='$id' ");
 while ($data = $query->fetch_array()) {
+    $ip = $data['id'];
     $judul = $data['judul'];
     $gambar = $set['url_website'] . "img/source/" . $data['gambar'];
     $tanggal = tgl_indonesia($data['tanggal']);
@@ -56,6 +57,7 @@ while ($data = $query->fetch_array()) {
                             <span class="input-group-addon" style="background-color:#83ba09;color:#FFF">Rp.</span>
                             <input type="text" class="form-control input-donasi" name="donasi" placeholder="0" style="text-transform: none;" maxlength="11" required>
                         </div>
+                        <input type="hidden" name="program" value="<?php echo $ip;?>">
                         <button class="primary-button">Beri Donasi</button>
                     </form>
                     <p>Berapapun donasi anda sangatah bermanfaat untuk mereka yang membutuhkan.</p>

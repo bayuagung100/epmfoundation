@@ -39,8 +39,25 @@ switch ($show) {
                                 <span class="text">Tambah</span>
                             </a>
                         </div>
-                        <div class="card-body">
+                        <div class="card-body">';
+                        buka_tabel_program(array("Nama Bank","No Rekening","Nama Pemilik","Logo Bank"));
+                        $no = 1;
+                        $query = $mysqli->query("SELECT * FROM rekening_bank ORDER BY id DESC");
+                        while ($data = $query->fetch_array()) {
+                            $nama_bank = $data['nama_bank'];
+                            $no_rek = $data['no_rek'];
+                            $nama_pemilik = $data['nama_pemilik'];
+                            $logo_bank = $data['logo_bank'];
+                            if($logo_bank){
+                                $pic = "../img/source/".$logo_bank;
+                            }
+                            isi_table_program($no, array($nama_bank, $no_rek, $nama_pemilik, "<img src='".$pic."' width='150' style='margin-bottom: 10px'>",),$link ,$data['id']);
+                            $no++;
+                        }
 
+                        tutup_tabel_program(array("Nama Bank","No Rekening","Nama Pemilik","Logo Bank"));
+
+        echo'
                         </div>
                     </div>
                 </div>
@@ -118,13 +135,10 @@ switch ($show) {
             $data= $query->fetch_array();
             $aksi   = "Edit";
         }else{
-            $data = array("id"=>"", "nama_bank"=>"", "no_rek"=>"", "nama_pemilik"=>"");
+            $data = array("id"=>"", "nama_bank"=>"", "no_rek"=>"", "nama_pemilik"=>"", "logo_bank"=>"");
             $aksi   = "Tambah";
         }
         
-        if($aksi=="Edit" and $_SESSION['level']!="admin" and $data['id']!=$_SESSION['id']){
-            header('location:'.$link);
-        }else{
             echo'
             <section class="content">
             <div class="container-fluid">
@@ -138,6 +152,7 @@ switch ($show) {
                     buat_textbox("Nama Bank", "nama_bank", $data['nama_bank'], "Enter nama bank");
                     buat_textbox("No Rekening", "no_rek", $data['no_rek'], "Enter no.rekening");
                     buat_textbox("Nama Pemilik", "nama_pemilik", $data['nama_pemilik'], "Enter nama pemilik");
+                    buat_imagepicker("Logo Bank", "logo_bank", $data['logo_bank']);
                 tutup_form($link);
         echo'                
                 </div>
@@ -145,7 +160,6 @@ switch ($show) {
             </div>
         </section>
         ';
-        }
         break;
 
     case "action":
@@ -161,6 +175,11 @@ switch ($show) {
         $twitter  = addslashes($_POST['twitter']);
         $visi  = addslashes($_POST['visi']);
         $misi  = addslashes($_POST['misi']);
+
+        $nama_bank = ucwords(addslashes($_POST['nama_bank']));
+        $no_rek = addslashes($_POST['no_rek']);
+        $nama_pemilik = addslashes($_POST['nama_pemilik']);
+        $logo_bank = addslashes($_POST['logo_bank']);
 
 
         if ($_POST['aksi'] == "setting") {
@@ -185,7 +204,40 @@ switch ($show) {
             WHERE id='$_POST[id]'
             ");
         }
+
+        if ($_POST['aksi']=="tambah") {
+            $query = $mysqli->query("INSERT INTO rekening_bank
+            (
+                nama_bank,
+                no_rek,
+                nama_pemilik,
+                logo_bank
+            )
+            VALUES
+            (
+                '$nama_bank',
+                '$no_rek',
+                '$nama_pemilik',
+                '$logo_bank'
+            )
+            ");
+        }
+        if ($_POST['aksi']=="edit") {
+            $query = $mysqli->query("UPDATE rekening_bank SET
+            nama_bank = '$nama_bank',
+            no_rek = '$no_rek',
+            nama_pemilik = '$nama_pemilik',
+            logo_bank = '$logo_bank'
+
+            WHERE id='$_POST[id]'
+            ");
+        }
+
         header('location:' . $link);
         break;
+
+    case "delete":
+        $query = $mysqli->query("DELETE FROM rekening_bank WHERE id='$_GET[id]'");
+        header('location:'.$link);
+        break;
 }
-?>

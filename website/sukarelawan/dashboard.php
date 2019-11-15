@@ -25,12 +25,59 @@ if (empty($_SESSION['email']) or empty($_SESSION['password']) or $_SESSION['log'
                             <table id="sukarelawan" class="display" style="width:100%">
                                 <thead>
                                     <tr>
+                                        <th>No</th>
+                                        <th>ID DONASI</th>
                                         <th>TANGGAL</th>
                                         <th>NOMINAL</th>
                                         <th>STATUS</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <?php 
+                                        $no = 1;
+                                        $query = $mysqli->query("SELECT * FROM donasi WHERE id_sukarelawan='$_SESSION[id]' ORDER BY id DESC");
+                                        while ($data = $query->fetch_array()) {
+                                            $id = $data['id'];
+                                            $date = $data['date'];
+                                            $tanggal = explode(" ", $date);
+                                            $nominal = $data['total'];
+                                            $status = ucwords($data['status']);
+
+                                            echo '
+                                            <tr>
+                                                <td>
+                                                    '.$no.'
+                                                </td>
+                                                <td>
+                                                    '.$id.'
+                                                </td>
+                                                <td>
+                                                    '.tgl_indonesia($tanggal[0]).'
+                                                </td>
+                                                <td>
+                                                    '.rupiah($nominal).'
+                                                </td>
+                                                ';
+                                                if ($status=="Pending") {
+                                                    echo '
+                                                    <td style="color:red">
+                                                        '.$status.'<br>(Belum Transfer)
+                                                    </td>
+                                                    ';
+                                                }else {
+                                                    echo '
+                                                    <td style="color:green">
+                                                        '.$status.'<br>(Sudah Transfer)
+                                                    </td>
+                                                    ';
+                                                }
+                                            echo'
+                                            </tr>
+                                            ';
+
+                                            $no++;
+                                        }
+                                    ?>
                                 </tbody>
                             </table>
                         </div>

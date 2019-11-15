@@ -203,6 +203,21 @@ $(document).on('click', '#btn-jml-lain', function() {
            
         });
 </script>
+<script language="JavaScript">
+	function ClipBoard() 
+	{
+		/* Get the text field */
+		// var willCopied = document.getElementById("willCopied");
+		var copyText = document.getElementById("copytext");
+		
+		// copyText.value = willCopied.innerText;
+		/* Select the text field */
+		copyText.select();
+
+		/* Copy the text inside the text field */
+		document.execCommand("copy");
+	}
+</script>
 </body>
 
 </html>

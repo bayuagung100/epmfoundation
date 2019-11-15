@@ -1741,6 +1741,20 @@ tr:nth-child(even) {
   max-width: 550px;
   margin: 50px auto;
 }
+.card-tambahan {
+  padding: 15px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+}
+
+.card-thanks{
+  padding: 15px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  position: relative;
+  max-width: 700px;
+  margin: 50px auto;
+}
 
 .card-auth .form-group {
   margin-bottom: 15px;
@@ -2006,10 +2020,7 @@ tr:nth-child(even) {
           appearance:none;
 }
 
-.bri{background-image:url(https://donasionline.id/images/bank_bri_logo.png);}
-.mandiri{background-image:url(https://donasionline.id/images/bank_mandiri_logo.png);}
-.bni-syariah{background-image:url(https://donasionline.id/images/bank_bni_syariah_logo.png);}
-.bca{background-image:url(https://donasionline.id/images/bank_bca_logo.png);}
+.bca{background-image:url(../img/logo_bca.png);}
 
 .cc-selector-2 input:active +.drinkcard-cc, .cc-selector input:active +.drinkcard-cc{opacity: .9;}
 .cc-selector-2 input:checked +.drinkcard-cc, .cc-selector input:checked +.drinkcard-cc{
@@ -2034,4 +2045,13 @@ tr:nth-child(even) {
   -webkit-filter: brightness(1.2) grayscale(.5) opacity(.9);
      -moz-filter: brightness(1.2) grayscale(.5) opacity(.9);
           filter: brightness(1.2) grayscale(.5) opacity(.9);
+}
+
+.page-main-content {
+  padding: 30px;
+  border: 1px solid #ccc;
+  box-shadow: 5px 5px 5px rgba(216, 200, 200, 0.3);
+  margin-top: 50px;
+  margin-bottom: 50px;
+  
 }

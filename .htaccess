@@ -19,6 +19,7 @@ RewriteRule ^blog/(.*)$ index.php?content=blog&id=$1 [L]
 RewriteRule ^blog$ index.php?content=blog-all [L]
 
 RewriteRule ^donasi$ donasi.php [L]
+RewriteRule ^terimakasih$ terimakasih.php [L]
 RewriteRule ^auth$ auth.php [L]
 RewriteRule ^logout$ logout.php [L]
 

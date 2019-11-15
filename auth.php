@@ -14,8 +14,10 @@ if (isset($_GET['daftar'])) { ?>
                         Tanda (<span style="color:red">*</span>) wajib diisi.
                     </p>
                     <?php
-                        if ($_GET['daftar'] == "gagal") {
+                        if ($_GET['daftar'] == "password-tidak-sama") {
                             echo '<div class="alert alert-danger" role="alert"><b>Sorry!</b> Password yang anda masukkan tidak sama.</div>';
+                        } elseif ($_GET['daftar'] == "gagal") {
+                            echo '<div class="alert alert-danger" role="alert"><b>Sorry!</b> Email yang anda masukkan sudah terdaftar.</div>';
                         }
                         ?>
                 </div>
@@ -204,39 +206,59 @@ if (isset($_GET['daftar'])) { ?>
     $password_repeat = $_POST['password_repeat'];
     $md5password = md5($_POST['password']);
 
+    
+
     if ($password != $password_repeat) {
         echo '
         <script>
-        window.location = "' . $set['url_website'] . 'auth?daftar=gagal";
+        window.location = "' . $set['url_website'] . 'auth?daftar=password-tidak-sama";
         </script>
         ';
     } else {
-        $query = $mysqli->query("INSERT INTO sukarelawan
-            (
-                nama_lengkap,
-                alamat,
-                kota,
-                no_hp,
-                email,
-                password
-            )
-            VALUES
-            (
-                '$nama',
-                '$alamat',
-                '$kota',
-                '$hp',
-                '$email',
-                '$md5password'
-            )
-        ");
-        if ($query) {
+        $cek = $mysqli->query("SELECT * FROM sukarelawan WHERE email='$email'");
+        $jmluser = $cek->num_rows;
+        if ($jmluser > 0) {
             echo '
             <script>
-            window.location = "' . $set['url_website'] . 'auth?login=new-member";
+            window.location = "' . $set['url_website'] . 'auth?daftar=gagal";
             </script>
             ';
+        } else {
+            $query = $mysqli->query("INSERT INTO sukarelawan
+                (
+                    nama_lengkap,
+                    alamat,
+                    kota,
+                    no_hp,
+                    email,
+                    password
+                )
+                VALUES
+                (
+                    '$nama',
+                    '$alamat',
+                    '$kota',
+                    '$hp',
+                    '$email',
+                    '$md5password'
+                )
+            ");
+            if ($query) {
+                echo '
+                <script>
+                window.location = "' . $set['url_website'] . 'auth?login=new-member";
+                </script>
+                ';
+            } else {
+                echo '
+                <script>
+                alert("Pendaftaran gagal, Silahkan coba lagi.");
+                window.location = "' . $set['url_website'] . '";
+                </script>
+                ';
+            }
         }
+        
     }
 } elseif ($_POST['oauth'] == "lupa-password") {
     $email = $_POST['email'];

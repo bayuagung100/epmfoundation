@@ -16,6 +16,7 @@ function buka_tabel_program($judul)
 			</thead>
 			<tbody>';
 }
+
 function isi_table_program($no, $data, $link, $id, $edit = true, $hapus = true)
 {
 	echo '
@@ -38,6 +39,26 @@ function isi_table_program($no, $data, $link, $id, $edit = true, $hapus = true)
 	echo '</td>
 		</tr>';
 }
+
+function isi_table_sukarelawan($no, $data, $link, $id, $edit = true)
+{
+	echo '
+				<tr>
+					<td>' . $no . '</td>';
+	foreach ($data as $dt) {
+		echo '<td>' . $dt . '</td>';
+	}
+	echo '<td>';
+	if ($edit) {
+		echo '<a href="' . $link . '&show=form&id=' . $id . '" class="btn btn-success btn-sm">
+				<i class="fas fa-eye"></i> Detail
+			</a> ';
+	}
+	echo '</td>
+		</tr>';
+}
+
+
 function tutup_tabel_program($judul)
 {
 	echo '		

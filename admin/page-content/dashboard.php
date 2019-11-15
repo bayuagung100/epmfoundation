@@ -14,8 +14,15 @@
             <div class="col-lg-3 col-6">
                 <div class="small-box bg-info">
                     <div class="inner">
-                        <h3>150</h3>
-
+                        <?php 
+                        $relquery = $mysqli->query("SELECT * FROM sukarelawan");
+                        $reldata = $relquery->num_rows;
+                        $danaquery = $mysqli->query("SELECT SUM(total) AS total FROM donasi WHERE status='berhasil' ");
+                        $danadata = $danaquery->fetch_array(); 
+                        $progquery = $mysqli->query("SELECT * FROM program");
+                        $progdata = $progquery->num_rows;
+                        ?>
+                        <h3><?php echo $reldata;?></h3>
                         <p>Sukarelawan</p>
                     </div>
                     <div class="icon">
@@ -27,9 +34,8 @@
             <div class="col-lg-3 col-6">
                 <div class="small-box bg-success">
                     <div class="inner">
-                        <h3>53</h3>
-
-                        <p>Proyek Amal</p>
+                        <h3><?php echo $progdata;?></h3>
+                        <p>Program Amal</p>
                     </div>
                     <div class="icon">
                         <i class="far fa-smile"></i>
@@ -41,7 +47,6 @@
                 <div class="small-box bg-warning">
                     <div class="inner">
                         <h3>44</h3>
-
                         <p>Penerima Amal</p>
                     </div>
                     <div class="icon">
@@ -53,8 +58,7 @@
             <div class="col-lg-3 col-6">
                 <div class="small-box bg-danger">
                     <div class="inner">
-                        <h3>655k</h3>
-
+                        <h3><?php echo rupiah($danadata['total']);?></h3>
                         <p>Dana Terhimpun</p>
                     </div>
                     <div class="icon">

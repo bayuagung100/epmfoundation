@@ -10,7 +10,7 @@
 						<div class="home-content">
 							<h1>Selamatkan Anak-Anak</h1>
 							<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-							<a href="<?php echo $set["url_website"];?>donasi" class="primary-button">Donasi Sekarang</a>
+							<a href="<?php echo $set["url_website"]; ?>donasi" class="primary-button">Donasi Sekarang</a>
 						</div>
 					</div>
 				</div>
@@ -28,7 +28,7 @@
 						<div class="home-content">
 							<h1>Jadilah Sukarelawan</h1>
 							<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-							<a href="#" class="primary-button">Daftar Sekarang</a>
+							<a href="<?php echo $set["url_website"]; ?>auth?daftar" class="primary-button">Daftar Sekarang</a>
 						</div>
 					</div>
 				</div>
@@ -41,10 +41,18 @@
 <div id="numbers" class="section">
 	<div class="container">
 		<div class="row">
+			<?php 
+				$relquery = $mysqli->query("SELECT * FROM sukarelawan");
+				$reldata = $relquery->num_rows;
+				$danaquery = $mysqli->query("SELECT SUM(total) AS total FROM donasi WHERE status='berhasil' ");
+				$danadata = $danaquery->fetch_array(); 
+				$progquery = $mysqli->query("SELECT * FROM program");
+				$progdata = $progquery->num_rows;
+			?>
 			<div class="col-md-3 col-sm-6">
 				<div class="number">
 					<i class="fa fa-handshake-o"></i>
-					<h3>357</h3>
+					<h3><?php echo $reldata;?></h3>
 					<span>Sukarelawan</span>
 				</div>
 			</div>
@@ -52,8 +60,8 @@
 			<div class="col-md-3 col-sm-6">
 				<div class="number">
 					<i class="fa fa-smile-o"></i>
-					<h3>47k</h3>
-					<span>Proyek Amal</span>
+					<h3><?php echo $progdata;?></h3>
+					<span>Program Amal</span>
 				</div>
 			</div>
 
@@ -68,7 +76,7 @@
 			<div class="col-md-3 col-sm-6">
 				<div class="number">
 					<i class="fa fa-money"></i>
-					<h3>785K</h3>
+					<h3><?php echo rupiah($danadata['total']);?></h3>
 					<span>Dana Terhimpun</span>
 				</div>
 			</div>
@@ -147,7 +155,7 @@
 				<div class="cta-content text-center">
 					<h1>Jadilah Sukarelawan</h1>
 					<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-					<a href="#" class="primary-button">Daftar Sekarang</a>
+					<a href="<?php echo $set["url_website"]; ?>auth?daftar" class="primary-button">Daftar Sekarang</a>
 				</div>
 			</div>
 		</div>
