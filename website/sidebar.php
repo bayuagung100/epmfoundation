@@ -19,7 +19,7 @@
         <h3 class="widget-title">Donatur</h3>
         <table id="donatur" class="display" style="width:100%">
             <thead>
-                <tr>
+                <tr>   
                     <th>TANGGAL</th>
                     <th>NOMINAL</th>
                 </tr>
@@ -34,8 +34,10 @@
                         $tanggal = explode(" ", $date);
                         $nominal = $data['total'];
                         echo '
-                        <tr>
+                        <tr>                        
                             <td>
+                                '.tgl_indonesia($tanggal[0]).'
+                                <br>
                                 <b>';
                                 if ($alias=="") {
                                    echo $nama; 
@@ -44,7 +46,7 @@
                                 }
                         echo'
                                 </b>
-                                <br>'.tgl_indonesia($tanggal[0]).'
+                                
                             </td>
                             <td>
                                 <b>'.rupiah($nominal).'</b>

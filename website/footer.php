@@ -78,7 +78,9 @@
 <script src="<?php echo $set['url_website']; ?>js/datatables.min.js"></script>
 <script>
     $(document).ready(function() {
-        $('#donatur').DataTable();
+        $('#donatur').DataTable({
+            "order": [[ 0, "desc" ]]
+        });
     });
     $(document).ready(function() {
         $('#sukarelawan').DataTable();
