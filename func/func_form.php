@@ -63,7 +63,7 @@ function buat_inlinetutup(){
 
 function buat_combobox($label, $nama, $list, $nilai, $lebar='4'){
 	echo'<div class="form-group" id="'.$nama.'">
-			<label for="'.$nama.'" class="control-label">'.$label.' (<a href="?content=kategori-program">Buat kategori baru</a>)</label>
+			<label for="'.$nama.'" class="control-label">'.$label.'</label>
 			<div class="col-sm-'.$lebar.'">
 			  <select class="form-control" name="'.$nama.'">';
 		foreach($list as $ls){

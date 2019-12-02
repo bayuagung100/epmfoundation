@@ -51,18 +51,28 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="?content=sukarelawan" class="nav-link ">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Sukarelawan</p>
-                    </a>
-                </li>
-                <li class="nav-item">
                     <a href="?content=tentang-kami" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Tentang Kami</p>
                     </a>
                 </li>
             </ul>
+        </li>
+        <li class="nav-item">
+            <a href="?content=donasi" class="nav-link">
+                <i class="nav-icon far fa-money-bill-alt"></i>
+                <p>
+                    Donasi
+                </p>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="?content=sukarelawan" class="nav-link">
+                <i class="nav-icon far fa-handshake"></i>
+                <p>
+                    Sukarelawan
+                </p>
+            </a>
         </li>
         <li class="nav-item">
             <a href="?content=setting" class="nav-link">

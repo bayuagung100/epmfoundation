@@ -82,7 +82,7 @@ switch($show){
                 while($k = $kategori->fetch_array()){
                     $list[] = array('val'=>$k['id'], 'cap'=>$k['kategori']);
                 }
-                buat_combobox("Kategori", "kategori", $list, $data['kategori']);
+                buat_combobox("Kategori  (<a href='?content=kategori-program'>Buat kategori baru</a>)", "kategori", $list, $data['kategori']);
                 buat_tinymce("Deskripsi Program", "deskripsi", $data['deskripsi'], "Enter deskripsi program", "richtext");
                 tutup_form($link);
         echo'                

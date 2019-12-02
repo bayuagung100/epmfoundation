@@ -49,7 +49,7 @@
 				$progquery = $mysqli->query("SELECT * FROM program");
 				$progdata = $progquery->num_rows;
 			?>
-			<div class="col-md-3 col-sm-6">
+			<div class="col-md-4 col-sm-6">
 				<div class="number">
 					<i class="fa fa-handshake-o"></i>
 					<h3><?php echo $reldata;?></h3>
@@ -57,7 +57,7 @@
 				</div>
 			</div>
 
-			<div class="col-md-3 col-sm-6">
+			<div class="col-md-4 col-sm-6">
 				<div class="number">
 					<i class="fa fa-smile-o"></i>
 					<h3><?php echo $progdata;?></h3>
@@ -65,15 +65,8 @@
 				</div>
 			</div>
 
-			<div class="col-md-3 col-sm-6">
-				<div class="number">
-					<i class="fa fa-heartbeat"></i>
-					<h3>154K</h3>
-					<span>Penerima Amal</span>
-				</div>
-			</div>
 
-			<div class="col-md-3 col-sm-6">
+			<div class="col-md-4 col-sm-6">
 				<div class="number">
 					<i class="fa fa-money"></i>
 					<h3><?php echo rupiah($danadata['total']);?></h3>

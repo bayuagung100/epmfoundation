@@ -79,11 +79,8 @@ while ($data = $query->fetch_array()) {
 
                             <ul class="share">
                                 <li>SHARE:</li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                                <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                <li><a href="https://twitter.com/share?url=<?php echo $set['url_website'].$id; ?>" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="http://www.facebook.com/sharer.php?u=<?php echo $set['url_website'].$id; ?>" target="_blank"><i class="fa fa-facebook"></i></a></li>
                             </ul>
                         </div>
 
@@ -99,43 +96,14 @@ while ($data = $query->fetch_array()) {
 
                         <ul class="share">
                             <li>SHARE:</li>
-                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                            <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                            <li><a href="https://twitter.com/share?url=<?php echo $set['url_website'].$id; ?>" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="http://www.facebook.com/sharer.php?u=<?php echo $set['url_website'].$id; ?>" target="_blank"><i class="fa fa-facebook"></i></a></li>
                         </ul>
                     </div>
 
-                    <div class="article-reply">
-                        <h3>Leave a reply</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                        <form>
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <input class="input" placeholder="Name" type="text">
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <input class="input" placeholder="Email" type="email">
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <input class="input" placeholder="Website" type="text">
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <textarea class="input" placeholder="Message"></textarea>
-                                    </div>
-                                    <button class="primary-button">Submit</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
+                    <!-- <div class="article-reply">
+                    
+                    </div> -->
 
                 </div>
                 <?php include "sidebar.php"; ?>

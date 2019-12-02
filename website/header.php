@@ -7,20 +7,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Epm Foundation</title>
 
-    <!-- Google font -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400%7CSource+Sans+Pro:700" rel="stylesheet">
-
-    <!-- Bootstrap -->
     <link type="text/css" rel="stylesheet" href="<?php echo $set['url_website']; ?>css/bootstrap.min.css" />
-
-    <!-- Owl Carousel -->
     <link type="text/css" rel="stylesheet" href="<?php echo $set['url_website']; ?>css/owl.carousel.css" />
     <link type="text/css" rel="stylesheet" href="<?php echo $set['url_website']; ?>css/owl.theme.default.css" />
-
-    <!-- Font Awesome Icon -->
     <link rel="stylesheet" href="<?php echo $set['url_website']; ?>css/font-awesome.min.css">
-
-    <!-- Custom stlylesheet -->
     <link type="text/css" rel="stylesheet" href="<?php echo $set['url_website']; ?>css/style.css" />
     <link type="text/css" rel="stylesheet" href="<?php echo $set['url_website']; ?>css/datatables.min.css" />
 
@@ -29,43 +20,32 @@
     <!--[if lt IE 9]>
 		  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-		<![endif]-->
+        <![endif]-->
 
 </head>
 
 <body>
-    <!-- HEADER -->
     <header>
-        <!-- NAVGATION -->
         <nav id="main-navbar">
             <div class="container">
                 <div class="navbar-header">
-                    <!-- Logo -->
                     <div class="navbar-brand">
                         <a class="logo" href="<?php echo $set['url_website']; ?>"><img src="" alt="logo"></a>
                     </div>
-                    <!-- Logo -->
 
-                    <!-- Mobile toggle -->
                     <button class="navbar-toggle-btn">
                         <i class="fa fa-bars"></i>
                     </button>
-                    <!-- Mobile toggle -->
 
-                    <!-- Mobile user toggle -->
                     <button class="user-toggle-btn">
                         <i class="fa fa-user"></i>
                     </button>
-                    <!-- Mobile user toggle -->
 
-                    <!-- Mobile Search toggle -->
                     <!-- <button class="search-toggle-btn">
                         <i class="fa fa-search"></i>
                     </button> -->
-                    <!-- Mobile Search toggle -->
                 </div>
 
-                <!-- user -->
                 <div class="navbar-user">
                     <button class="user-btn"><i class="fa fa-user"></i></button>
                     <?php
@@ -89,7 +69,7 @@
                     } else {
                         ?>
                         <div class="user-form">
-                            <h4>Selamat datang <?php echo $_SESSION['nama_lengkap'];?></h4>
+                            <h4>Selamat datang <?php echo $_SESSION['nama_lengkap']; ?></h4>
                             <ul>
                                 <li><a href="<?php echo $set['url_website']; ?>sukarelawan/dashboard">Dashboard Sukarelawan</a></li>
                                 <li><a href="<?php echo $set['url_website']; ?>logout">Logout</a></li>
@@ -107,9 +87,7 @@
                         </form>
                     </div>
                 </div> -->
-                <!-- Search -->
 
-                <!-- Nav menu -->
                 <ul class="navbar-menu nav navbar-nav navbar-right">
                     <li><a href="<?php echo $set['url_website']; ?>">Home</a></li>
                     <li><a href="<?php echo $set['url_website']; ?>tentang-kami">Tentang Kami</a></li>
@@ -126,12 +104,9 @@
                     <li class="has-dropdown"><a href="#">Blog</a>
                         <ul class="dropdown">
                             <li><a href="<?php echo $set['url_website']; ?>blog">Our Blog</a></li>
-                            <li><a href="#">Galeri</a></li>
                         </ul>
                     </li>
-                    <li><a href="#">Contact</a></li>
+                    <!-- <li><a href="#">Contact</a></li> -->
                 </ul>
-                <!-- Nav menu -->
             </div>
         </nav>
-        <!-- /NAVGATION -->

@@ -1,10 +1,6 @@
-<!-- FOOTER -->
 <footer id="footer" class="section">
-    <!-- container -->
     <div class="container">
-        <!-- row -->
         <div class="row">
-            <!-- footer contact -->
             <div class="col-md-4">
                 <div class="footer">
                     <div class="footer-logo">
@@ -18,25 +14,7 @@
                     </ul>
                 </div>
             </div>
-            <!-- /footer contact -->
 
-            <!-- footer galery -->
-            <div class="col-md-4">
-                <div class="footer">
-                    <h3 class="footer-title">Galeri</h3>
-                    <ul class="footer-galery">
-                        <li><a href="#"><img src="./img/galery-1.jpg" alt=""></a></li>
-                        <li><a href="#"><img src="./img/galery-2.jpg" alt=""></a></li>
-                        <li><a href="#"><img src="./img/galery-3.jpg" alt=""></a></li>
-                        <li><a href="#"><img src="./img/galery-4.jpg" alt=""></a></li>
-                        <li><a href="#"><img src="./img/galery-5.jpg" alt=""></a></li>
-                        <li><a href="#"><img src="./img/galery-6.jpg" alt=""></a></li>
-                    </ul>
-                </div>
-            </div>
-            <!-- /footer galery -->
-
-            <!-- footer newsletter -->
             <div class="col-md-4">
                 <div class="footer">
                     <h3 class="footer-title">Media Sosial </h3>
@@ -48,11 +26,8 @@
                     </ul>
                 </div>
             </div>
-            <!-- /footer newsletter -->
         </div>
-        <!-- /row -->
 
-        <!-- footer copyright & nav -->
         <div id="footer-bottom" class="row">
 
             <div class="col-md-6">
@@ -63,13 +38,9 @@
                 </div>
             </div>
         </div>
-        <!-- /footer copyright & nav -->
     </div>
-    <!-- /container -->
 </footer>
-<!-- /FOOTER -->
 
-<!-- jQuery Plugins -->
 <script src="<?php echo $set['url_website']; ?>js/jquery.min.js"></script>
 <script src="<?php echo $set['url_website']; ?>js/bootstrap.min.js"></script>
 <script src="<?php echo $set['url_website']; ?>js/owl.carousel.min.js"></script>

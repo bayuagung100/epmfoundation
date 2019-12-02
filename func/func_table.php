@@ -17,6 +17,35 @@ function buka_tabel_program($judul)
 			<tbody>';
 }
 
+function buka_tabel_dashboard($judul)
+{
+	echo '
+	<div class="card-body">
+        <table id="example1" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+					<th style="width: 10px">No</th>';
+	foreach ($judul as $jdl) {
+		echo '<th>' . $jdl . '</th>';
+	}
+	echo '
+				</tr>
+			</thead>
+			<tbody>';
+}
+
+function isi_table_dashboard($no, $data)
+{
+	echo '
+				<tr>
+					<td>' . $no . '</td>';
+	foreach ($data as $dt) {
+		echo '<td>' . $dt . '</td>';
+	}
+	echo '</td>
+		</tr>';
+}
+
 function isi_table_program($no, $data, $link, $id, $edit = true, $hapus = true)
 {
 	echo '
@@ -71,6 +100,23 @@ function tutup_tabel_program($judul)
 	}
 	echo '
 					<th style="width: 90px">Aksi</th>
+				</tr>
+			</tfoot>
+		</table>
+	</div>';
+}
+
+function tutup_tabel_dashboard($judul)
+{
+	echo '		
+			</tbody>	
+			<tfoot>
+				<tr>
+					<th style="width: 10px">No</th>';
+	foreach ($judul as $jdl) {
+		echo '<th>' . $jdl . '</th>';
+	}
+	echo '
 				</tr>
 			</tfoot>
 		</table>
