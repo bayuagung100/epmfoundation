@@ -5,7 +5,7 @@ include "website/header.php";
 echo "</header>";
 ?>
 <?php 
-if (isset($_POST['jumlah']) and isset($_POST['program']) and isset($_POST['nama']) and isset($_POST['email']) and isset($_POST['hp']) and isset($_POST['bank'])) {
+if (isset($_POST['jumlah']) && isset($_POST['program']) && isset($_POST['nama']) && isset($_POST['email']) && isset($_POST['hp']) && isset($_POST['bank'])) {
     $jumlah = $_POST['jumlah'];
     $idprogram = $_POST['program'];
     $nama = $_POST['nama'];
@@ -22,7 +22,8 @@ if (isset($_POST['jumlah']) and isset($_POST['program']) and isset($_POST['nama'
     $bankdata = $bankquery->fetch_array();
     $rek_tujuan = $bankdata['nama_bank'] . "-" . $bankdata['no_rek'] . "-" . $bankdata['nama_pemilik'];
 
-    if (isset($_POST['sukarelawan']) OR isset($_POST['alias'])) {
+    if (isset($_POST['sukarelawan']) && isset($_POST['alias'])) {
+        // echo "sukarelawan dan alias";
         $sukarelawan = $_POST['sukarelawan'];
         $alias = $_POST['alias'];
         $dquery = $mysqli->query(" INSERT INTO donasi
@@ -58,7 +59,42 @@ if (isset($_POST['jumlah']) and isset($_POST['program']) and isset($_POST['nama'
                 '$total'
             )
         ");
+    } elseif (isset($_POST['sukarelawan'])) {
+        // echo 'masuk sukarelawan';
+        $sukarelawan = $_POST['sukarelawan'];
+        $dquery = $mysqli->query(" INSERT INTO donasi
+            (
+                id_program,
+                nama,
+                sukarelawan,
+                email,
+                hp,
+                doa,
+                rekening_tujuan,
+                date,
+                end_date,
+                jumlah,
+                kode_unik,
+                total
+            )
+            VALUES
+            (
+                '$idprogram',
+                '$nama',
+                '$sukarelawan',
+                '$email',
+                '$hp',
+                '$doa',
+                '$rek_tujuan',
+                '$date',
+                '$enddate',
+                '$jumlah',
+                '$kode_unik',
+                '$total'
+            )
+        ");
     } elseif (isset($_POST['alias'])) {
+        // echo 'masuk alias';
         $alias = $_POST['alias'];
         $dquery = $mysqli->query(" INSERT INTO donasi
             (
@@ -92,6 +128,18 @@ if (isset($_POST['jumlah']) and isset($_POST['program']) and isset($_POST['nama'
             )
         ");
     } else {
+        // echo "masuk else <br>";
+        // echo $idprogram."<br>";
+        // echo $nama."<br>";
+        // echo $email."<br>";
+        // echo $hp."<br>";
+        // echo $doa."<br>";
+        // echo $rek_tujuan."<br>";
+        // echo $date."<br>";
+        // echo $enddate."<br>";
+        // echo $jumlah."<br>";
+        // echo $kode_unik."<br>";
+        // echo $total."<br>";
         $dquery = $mysqli->query(" INSERT INTO donasi
             (
                 id_program,
@@ -129,7 +177,7 @@ if (isset($_POST['jumlah']) and isset($_POST['program']) and isset($_POST['nama'
             AND hp='$hp' AND date='$date' AND end_date='$enddate' AND kode_unik='$kode_unik' ");
         $iddata = $idquery->fetch_array();
         $iddonasi = $iddata['id'];
-        ?>
+    ?>
         <div class="section">
             <div class="container">
                 <div class="row">
@@ -227,14 +275,14 @@ if (isset($_POST['jumlah']) and isset($_POST['program']) and isset($_POST['nama'
     } else {
         echo '
         <script>
-        alert("Tidak dapat melakukan donasi, harap diulang kembali.");
+        alert("Tidak dapat melakukan donasi, harap diulang kembali.\n'.$mysqli->error.'");
         window.location = "' . $set['url_website'] . '";
         </script>
         ';
     }
     ?>
 <?php
-} elseif (isset($_POST['jumlah']) and isset($_POST['nama']) and isset($_POST['email']) and isset($_POST['hp']) and isset($_POST['bank'])) {
+} elseif (isset($_POST['jumlah']) && isset($_POST['nama']) && isset($_POST['email']) && isset($_POST['hp']) && isset($_POST['bank'])) {
     $jumlah = $_POST['jumlah'];
     $nama = $_POST['nama'];
     $email = $_POST['email'];
@@ -250,7 +298,8 @@ if (isset($_POST['jumlah']) and isset($_POST['program']) and isset($_POST['nama'
     $bankdata = $bankquery->fetch_array();
     $rek_tujuan = $bankdata['nama_bank'] . "-" . $bankdata['no_rek'] . "-" . $bankdata['nama_pemilik'];
 
-    if (isset($_POST['sukarelawan']) OR isset($_POST['alias'])) {
+    if (isset($_POST['sukarelawan']) && isset($_POST['alias'])) {
+        // echo "masuk sukarelawan alias";
         $sukarelawan = $_POST['sukarelawan'];
         $alias = $_POST['alias'];
         $dquery = $mysqli->query(" INSERT INTO donasi
@@ -284,7 +333,40 @@ if (isset($_POST['jumlah']) and isset($_POST['program']) and isset($_POST['nama'
                 '$total'
             )
         ");
+    } elseif (isset($_POST['sukarelawan'])) {
+        // echo "masuk sukarelawan";
+        $sukarelawan = $_POST['sukarelawan'];
+        $dquery = $mysqli->query(" INSERT INTO donasi
+            (
+                nama,
+                sukarelawan,
+                email,
+                hp,
+                doa,
+                rekening_tujuan,
+                date,
+                end_date,
+                jumlah,
+                kode_unik,
+                total
+            )
+            VALUES
+            (
+                '$nama',
+                '$sukarelawan',
+                '$email',
+                '$hp',
+                '$doa',
+                '$rek_tujuan',
+                '$date',
+                '$enddate',
+                '$jumlah',
+                '$kode_unik',
+                '$total'
+            )
+        ");
     } elseif (isset($_POST['alias'])) {
+        // echo "masuk alias";
         $alias = $_POST['alias'];
         $dquery = $mysqli->query(" INSERT INTO donasi
             (
@@ -316,6 +398,7 @@ if (isset($_POST['jumlah']) and isset($_POST['program']) and isset($_POST['nama'
             )
         ");
     } else {
+        // echo "masuk else";
         $dquery = $mysqli->query(" INSERT INTO donasi
             (
                 nama,
@@ -440,7 +523,7 @@ if (isset($_POST['jumlah']) and isset($_POST['program']) and isset($_POST['nama'
     } else {
         echo '
         <script>
-        alert("Tidak dapat melakukan donasi, harap diulang kembali.");
+        alert("Tidak dapat melakukan donasi, harap diulang kembali.\n'.$mysqli->error.'");
         window.location = "' . $set['url_website'] . '";
         </script>
         ';
